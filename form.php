@@ -60,6 +60,7 @@
     </div>
 
     <script src="js/form.js"></script>
+    <script src="./js/jquery.min.js"></script>
 </body>
 
 </html>

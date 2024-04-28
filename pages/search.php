@@ -1,42 +1,42 @@
-<?php
-require_once("sanpham.php");
-
-// Khởi tạo kết nối
-$db = new ConnectDB();
-
-// Xử lý yêu cầu tìm kiếm
-if(isset($_GET['search'])) {
-    // Xử lý dữ liệu đầu vào từ người dùng để tránh tấn công SQL injection
-    $search = $db->conn->real_escape_string($_GET['search']);
-    
-    // Thực hiện truy vấn
-    if (is_numeric($search)) {
-        // Nếu là số, tìm kiếm theo MASP
-        $sql = "SELECT * FROM sanpham WHERE MASP = '$search'";
-    } else {
-        // Nếu không phải là số, tìm kiếm theo TenSP
-        $sql = "SELECT * FROM sanpham WHERE TenSP LIKE '%$search%'";
-    }
-    $result = $db->conn->query($sql);
-
-    // Kiểm tra kết quả của truy vấn
-    if ($result) {
-        if ($result->num_rows > 0) {
-            // Hiển thị kết quả dưới dạng sản phẩm
-            while($row = $result->fetch_assoc()) {
-                echo "<div>";
-                echo "<img src='" . $row["HinhAnh"] . "' alt='" . $row["TenSP"] . "'>";
-                echo "<p>ID: " . $row["MaSP"]. "</p>";
-                echo "<p>Name: " . $row["TenSP"]. "</p>";
-                echo "<p>Price: " . $row["GiaSP"]. "</p>";
-                echo "</div>";
-            }
-        } else {
-            echo "No results found.";
+<?php 
+require_once("product_actions.php");
+include './module/sanpham.php';
+    if(isset($_REQUEST['data'])){
+        $data=$_REQUEST['data'];
+        $result=$sanpham->timsanpham($data);
+        if(mysqli_num_rows($result)==0){
+            $result=$sanpham->sanpham($data);
         }
-    } else {
-        // Hiển thị thông báo lỗi nếu truy vấn không thành công
-        echo "Query failed: " . $db->conn->error;
+        $data="";
+        if(mysqli_num_rows($result)>0){
+            while($row=mysqli_fetch_assoc($result)){
+                $data.='<form method="GET" action="">
+                <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+                    <div class="card product-item border-0 mb-4">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                            <img class="img-fluid w-100" src="./img/'.$row['HinhAnh'].'" alt="">
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 class="text-truncate mb-3">'.$row['TenSP'].'</h6>
+                            <div class="d-flex justify-content-center">
+                                <h6>'.$row['GiaSP'].'</h6>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between bg-light border">
+                            <!-- Nút Xem Nhanh -->
+                            '.showQuickViewButton($row['MaSP']).'
+                            <!-- Nút Thêm vào Giỏ Hàng -->
+                            '.showAddToCartButton($row['MaSP']).'
+                            </div>
+                            </div>
+                            </div>
+                            </form>
+                            ';
+            }
+        }
+        else {
+            echo "Không có sản phẩm nào";
+        }
+        echo $data;
     }
-}
-?>
+            

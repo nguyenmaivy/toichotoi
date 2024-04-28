@@ -176,9 +176,7 @@ body {
     background-color: black;
     margin-bottom: 10px;
 }
-td button {
-    margin-bottom: 5px;
-}
+
 .item-nhapkho.pannel {
     /* height: 350px; */
     display: none;  

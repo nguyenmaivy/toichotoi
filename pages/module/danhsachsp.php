@@ -17,7 +17,6 @@
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1">Trang thái</th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1">Thương hiệu</th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1">Danh mục</th>
-                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1">Nhà cung cấp</th>
                     <th class="sorting" width="60px" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"></th>
                     <th class="sorting" width="60px" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"></th>
                 </tr>
@@ -50,7 +49,6 @@
                                             <td>' . $row['TrangThai'] . '</td>
                                             <td>' . $row['TenTH'] . '</td>
                                             <td>' . $row['MaDM'] . '</td>
-                                            <td>' . $row['TenNCC'] . '</td>
                                             <td><button class="btn btn-warning" onclick="suasanpham(' . $row['MaSP'] . ')">Edit</button></td>
                                             <td><button class="btn btn-danger" onclick="xoasanpham(' . $row['MaSP'] . ')">Delete</button></td>
                                         </tr>';
@@ -60,7 +58,7 @@
             </tbody>
 
         </table>
-        <!-- <button>Add product</button> -->
+        <button>Add product</button>
 
     </div>
     <div class="row">
@@ -94,10 +92,10 @@
         </div>
     </div>
 </div>
-<!-- <script src="js/pagination.js"></script> -->
+<script src="js/pagination.js"></script>
 <script type="text/javascript">
     (function(name) {
-        var container =
+        var container = 
         $('#pagination-' + name);
         console.log(container);
         if (!container.length) return;

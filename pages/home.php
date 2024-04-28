@@ -108,7 +108,7 @@
             </div>
         </div>
     </div>
-<?php include 'pages/bestseller.php';?>
+<?php include './pages/bestseller.php';?>
 
 <div class="container-fluid bg-secondary my-5">
         <div class="row justify-content-md-center py-5 px-xl-5">
@@ -163,3 +163,4 @@
             </div>
         </div>
     </div>
+    

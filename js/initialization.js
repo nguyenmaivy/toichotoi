@@ -216,9 +216,9 @@ function createProduct() {
             quantity: 15,
         },
         ]
-        localStorage.setItem('productss', JSON.stringify(productss));
+        // localStorage.setItem('productss', JSON.stringify(productss));
     }
-window.onload = createProduct();
+// window.onload = createProduct();
 
-console.log("cmm");
-localStorage.setItem('productss', JSON.stringify(productss));
+// console.log("cmm");
+// localStorage.setItem('productss', JSON.stringify(productss));

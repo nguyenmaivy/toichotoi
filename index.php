@@ -14,19 +14,18 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-
+    <link rel="stylesheet" href="./css/cssDangky.css">
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <!-- <link rel="stylesheet" href="css/all.min.css"> -->
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <!-- Font Awesome -->
     <!-- <link href="css/all.min.css" rel="stylesheet"> -->
-
+    
     <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
+    
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
@@ -41,6 +40,7 @@
     <div id="root">
     <?php 
        include './pages/home.php';
+       include './pages/dangky.php';
     ?>
     </div>
     <?php 
@@ -63,6 +63,7 @@
     <script src="js/main.js"></script>
     <!--Javascript Product-->
     <script src="js/initialization.js"></script>
+    <script src="./js/home.js"></script>
 </body>
 
 </html>

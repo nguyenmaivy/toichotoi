@@ -1,9 +1,10 @@
-<?php
-echo '
+<?php 
+    include 'module/danhmuc.php';
+    $danhmuc=getDanhMuc();
+?>
 <!-- Form lọc theo giá -->
-<form method="GET" action="./pages/price_event.php">
+        <form id="price_sp">
         <!-- Shop Sidebar Start -->
-        
             <!-- Price Start -->
             <div class="border-bottom mb-4 pb-4">
                 <h5 class="font-weight-semi-bold mb-4">Lọc theo giá</h5>
@@ -39,7 +40,25 @@ echo '
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button> <!-- Submit button -->
             </div>
+        </form>
+            <div class="mb-5">
+            <form id="danhmuc_form">
+            <h5 class="font-weight-semi-bold mb-4">Danh Mục</h5>
+                <div
+                    class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                    <input type="checkbox" class="custom-control-input" checked id="dm" name="alldm" value="1">
+                    <label class="custom-control-label" for="dm">All Category</label>
+                    <span class="badge border font-weight-normal"></span>
+                </div>
+                <?php foreach ($danhmuc as $item): ?>
+                <div
+                    class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                    <input type="checkbox" class="custom-control-input" id="<?php echo 'dm'.$item['MaDM']; ?>" name="dm<?php echo $item['MaDM']; ?>" value="<?php echo $item['MaDM']; ?>">
+                    <label class="custom-control-label" for="<?php echo 'dm'.$item['MaDM'] ?>"><?php echo $item['TenDanhMuc']; ?></label>
+                    <span class="badge border font-weight-normal"></span>
+                </div>
+                <?php endforeach; ?>
+                </form>
+            </div>
             <!-- Price End -->
         
-</form>';
-?>

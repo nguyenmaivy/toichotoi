@@ -34,6 +34,7 @@
                     <ul class="menudrop-qlkho">
                         <li class="item-menu"><i class="ti-plus"></i> Quản lý sản phẩm </li>
                         <li class="item-menu"><i class="ti-plus"></i> Quản lý nhà cung cấp</li>
+                        <li class="item-menu"><i class="ti-plus"></i> Tìm kiếm sản phẩm</li>
                         <li class="item-menu"><i class="ti-plus"></i> Lập phiếu nhập kho</li>
                         <li class="item-menu"><i class="ti-plus"></i> Thống kê lịch sử nhập</li>
                     </ul>
@@ -89,9 +90,6 @@
                 </div>
                 <div class="model-thongkenhap model-right">
                    
-                </div>
-                <div class="model-nhacc model-right">
-
                 </div>
                 <!-- <div class="model-in model-right">
                     <div class="top-menu">

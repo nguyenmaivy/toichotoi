@@ -32,19 +32,31 @@ function themTaiKhoan($userName, $password, $phone)
 
     // Nếu số điện thoại đã tồn tại, trả về thông báo lỗi
     if ($phoneResult->num_rows > 0) {
-        echo "<script>alert('Số điện thoại đã được sủ dụng.'); window.location.href = '/PhanTichTKHTTT/form.php';</script>";
+        echo "<script>alert('Số điện thoại đã được sử dụng. Hãy sử dụng số điện thoại khác'); window.location.href = '/PhanTichTKHTTT/form.php';</script>";
         exit();
     }
 
-    // Kiểm tra xem tài khoản đã tồn tại trong cơ sở dữ liệu chưa
+    // Kiểm tra xem tên đăng nhập đã tồn tại trong cơ sở dữ liệu chưa
     $checkStmt = $conn->conn->prepare("SELECT * FROM taikhoan WHERE UserName=?");
     $checkStmt->bind_param("s", $userName);
     $checkStmt->execute();
-    $result = $checkStmt->get_result();
+    $UserNameresult = $checkStmt->get_result();
 
-    // Nếu tài khoản đã tồn tại, trả về thông báo lỗi
-    if ($result->num_rows > 0) {
-        echo "<script>alert('Tài khoản đã tồn tại.'); window.location.href = '/PhanTichTKHTTT/form.php';</script>";
+    // Nếu tên đăng nhập đã tồn tại, trả về thông báo lỗi
+    if ($UserNameresult->num_rows > 0) {
+        echo "<script>alert('Tên đăng nhập đã được sử dụng. Hãy thay đổi tên đăng nhập khác! '); window.location.href = '/PhanTichTKHTTT/form.php';</script>";
+        exit();
+    }
+
+    // Kiểm tra xem mật khẩu đã tồn tại trong cơ sở dữ liệu chưa
+    $checkStmt = $conn->conn->prepare("SELECT * FROM taikhoan WHERE MatKhau=?");
+    $checkStmt->bind_param("s", $password);
+    $checkStmt->execute();
+    $Passresult = $checkStmt->get_result();
+
+    // Nếu mật khẩu đã tồn tại, trả về thông báo lỗi
+    if ($Passresult->num_rows > 0) {
+        echo "<script>alert('Mật khẩu đã được sử dụng. Vui lòng đặt mật khẩu khác! '); window.location.href = '/PhanTichTKHTTT/form.php';</script>";
         exit();
     }
 
@@ -67,6 +79,14 @@ function themTaiKhoan($userName, $password, $phone)
     }
 }
 
+function setCurrentUser($phone)
+{
+    echo <<<SCRIPT
+    <script>
+    localStorage.setItem('currentuser', '$phone');
+    </script>
+    SCRIPT;
+}
 
 function kiemTraDangNhap($phone, $password)
 {
@@ -92,9 +112,11 @@ function kiemTraDangNhap($phone, $password)
         if ($tenNhomQuyen === 'KH') {
             // Nhóm quyền là "KH" (Khách hàng), chuyển hướng đến trang index.php
             header("Location: /PhanTichTKHTTT/index.php");
+            setCurrentUser($phone);
         } else {
             // Nhóm quyền khác, chuyển hướng đến trang adpanel.php
             header("Location: /PhanTichTKHTTT/adpanel.php");
+            setCurrentUser($phone);
         }
     } else {
         echo "<script>alert('Sai tên đăng nhập hoặc mật khẩu.');</script>";
@@ -117,6 +139,14 @@ if (isset($_POST['dangki'])) {
     $result = kiemTraDangNhap($phone, $password);
     echo $result;
 }
+
+echo <<<_SCRIPT
+<script>
+function setCurrentUser(phone) {
+    localStorage.setItem('currentuser', phone);
+}
+</script>
+_SCRIPT;
 
 // Đóng kết nối cơ sở dữ liệu
 $conn->conn->close();

@@ -34,7 +34,7 @@
             </div>
     </form>
 </div>
-<script>
+<!-- <script>
     $(".btn-closee").click(function(){
         $(".btn-login").addClass("btn-default")
     })
@@ -84,4 +84,4 @@
             }
         }
     })
-</script>
+</script> -->

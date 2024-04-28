@@ -33,17 +33,39 @@
     <script src="./js/jquery.min.js"></script>
     </script>
     <script>
-        var id=<?php echo $_GET['id'] ;?>;
-        $("#root").load('./pages/module/xlinhoadon.php?id='+id,function(){
-            $(".btn-loaddon").remove()
-            $(".print-pdf").text("In hóa đơn")
-            $(".print-pdf").click(function(){
-                setTimeout(()=>{
-                    window.print();
-                },0)
-                $(this).remove();
-            })
-        })
+        <?php
+            if(isset($_REQUEST['phieunhap'])) {
+                $id = $_GET['id'];
+                echo " id = $id;";
+                echo "
+                $('#root').load('./pages/module/xlinhoadon.php?phieunhap&id=' + id, function(){
+                    $('.btn-loaddon').remove();
+                    $('.print-pdf').text('In hóa đơn');
+                    $('.print-pdf').click(function(){
+                        setTimeout(function(){
+                            window.print();
+                        }, 0);
+                        $(this).remove();
+                    });
+                });
+            ";
+            } else {
+                $id = $_GET['id'];
+                echo " id = $id;";
+                echo "
+                    $('#root').load('./pages/module/xlinhoadon.php?donhang&id=' + id, function(){
+                        $('.btn-loaddon').remove();
+                        $('.print-pdf').text('In hóa đơn');
+                        $('.print-pdf').click(function(){
+                            setTimeout(function(){
+                                window.print();
+                            }, 0);
+                            $(this).remove();
+                        });
+                    });
+                ";
+            }
+        ?>
     </script>
 </body>
 </html>

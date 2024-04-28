@@ -45,7 +45,7 @@
                 
             
             </div>
-    <div class="container-fluid pt-5">
+    <div class="container-fluid pt-5 left-content">
         <div class="row px-xl-5">
             <div class="col-lg-3 col-md-12">
                 <?php require("price.php") ?>
@@ -53,36 +53,7 @@
                     <h5 class="font-weight-semi-bold mb-4">Thương hiệu</h5>
                     <!-- tự làm tiếp nhé -->
                 </div>
-                <div class="mb-5">
-                    <h5 class="font-weight-semi-bold mb-4">Size</h5>
-                    <form>
-                        <div
-                            class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" checked id="size-all">
-                            <label class="custom-control-label" for="size-all">All Size</label>
-                            <span class="badge border font-weight-normal">1000</span>
-                        </div>
-                        <div
-                            class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="size-1">
-                            <label class="custom-control-label" for="size-1">Fullsize</label>
-                            <span class="badge border font-weight-normal">150</span>
-                        </div>
-                        <div
-                            class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="size-2">
-                            <label class="custom-control-label" for="size-2">Minisize</label>
-                            <span class="badge border font-weight-normal">295</span>
-                        </div>
-                        <div
-                            class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="size-3">
-                            <label class="custom-control-label" for="size-3">Combo</label>
-                            <span class="badge border font-weight-normal">246</span>
-                        </div>
-
-                    </form>
-                </div>
+                
                 </div>
             <!-- Product search form -->
                  
@@ -103,7 +74,12 @@
                 <div class="col-lg-9 col-md-12">
                     <div class="row pb-3">
                         <div class="col-12 pb-1">
-                            <?php require_once("search_form.php"); ?>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="input_searchsp" placeholder="Tên hoặc ID sản phẩm" name="search">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary btn_searchsp" type="submit">Search</button>
+                                    </div>
+                                </div>
                         </div>
                         <div class="product-detail" id="productDetailContainer">
                             <?php require("product_start.php"); ?>
