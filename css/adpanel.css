@@ -1,0 +1,185 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0;
+}
+i {
+    display: inline;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* width: 80%; */
+}
+#rapper-admin {
+    /* width: 90%; */
+    margin-right: auto;
+    margin-left: auto;
+    /* height: 700px; */
+}
+#header {
+    height: 50px;
+    border:  1px black solid;
+    display: flex;
+    align-items: center;
+    background-color: #222222;
+} 
+.container-item {
+    width: 33.333%;
+    /* height: 50px; */
+    background-color: #222222;
+    color: #999999;
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+#header .right-item {
+    text-align: right;
+}
+#content {
+    /* margin-top: 200px; */
+    
+    /* background-color: red; */
+    display: flex;
+}
+
+.left-content {
+    width: 20%;
+    border: 1px black solid;
+    /* height: 1000px; */
+}
+ .container {
+    /* height: 35px; */
+    border: 1px black solid;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 20px;
+    font-weight: 500;
+    color: #333333;
+    cursor: pointer;
+    background-color: #079DD9;
+}
+/* #content .so1 {
+    color: #333333;
+} */
+@media screen and (max-width: 1150px){
+    .container {
+        font-size: 13px;
+        /* height: 70px !important; */
+    }
+}
+    
+#right-content {
+    border: 1px black solid;
+    width: 80%;
+    height: 700px;
+    overflow: auto;
+}
+.container.active {
+    /* color: #428BCA; */
+}
+.item-container.disabled {
+    cursor: not-allowed;
+    color: #a6a4a4 !important;
+}
+.model-right {
+    display: none;
+}
+.model-right.active{
+    display: block;
+}
+.top-menu {
+    margin-top: 1px;
+    color: #288ad6;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.menu-container {
+    /* justify-content: center; */
+}
+.item-menu {
+    /* background-color: #ecf0f1; */
+    cursor: pointer;
+    border-width: 0px !important;
+}
+.item-menu.active {
+    color: #f2cd5e;
+    
+}
+.menudrop-qlkho {
+    display: none;
+    list-style-type: none;
+}
+.menudrop-banhang {
+    display: none;
+    list-style-type: none;
+    padding-left: 0;
+}
+.menudrop-qlkho.active {
+    display: block;
+}
+.menudrop-tk.active {
+    display: block;
+}
+.model-duyetdon.active {
+    display: block;
+}
+.model-item {
+    cursor: pointer;
+}
+.model-item.active {
+    background-color: #079DD9;
+}
+.error-login {
+    justify-content: center;
+    display: flex;
+    margin-bottom: 5px;
+}
+.table-content {
+    /* height: 500px;
+    overflow: auto; */
+}
+.button-duyet {
+    font-size: 12px;
+    padding: 2px;
+}
+.button-in {
+    font-size: 12px;
+    background-color: #079DD9;
+    cursor: pointer;
+    padding: 2px;
+}
+.button-duyet.disabled {
+    cursor: not-allowed;
+}
+.button-duyet.active {
+    background-color: #079DD9;
+    cursor: default;
+}
+.img-sanpham {
+    width: 100px;
+}
+.btn-loaddon,.btn-donhang1 {
+    cursor: pointer;
+}
+.text-cent {
+    text-align: center;
+}
+.tittle-hoadon {
+}
+.border-black {
+    border-color: black !important;
+}
+.horizontal-line {
+    width: 100%; 
+    height: 2px; 
+    background-color: black;
+    margin-bottom: 10px;
+}
+td button {
+    margin-bottom: 5px;
+}
+.item-nhapkho.pannel {
+    /* height: 350px; */
+    display: none;  
+}

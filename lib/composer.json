@@ -1,0 +1,5 @@
+{
+    "require": {
+        "phpviet/number-to-words": "^1.3"
+    }
+}
