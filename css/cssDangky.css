@@ -148,8 +148,8 @@
     text-decoration: none;
 }
 .user-dn {
-    width: 160px;
-    height: 90px;
+    /* width: 160px; */
+    /* height: 90px; */
     position: absolute;
     bottom: -65px;
     right: -59px;

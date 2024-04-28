@@ -35,7 +35,7 @@
             $strSQL="SELECT * FROM `donhang` WHERE TrangThaiDonHang='0' ".(!isset($_GET['status']) ? "OR TrangThaiDonHang='1'" : "").$strtmp;
             $result=$conn->excuteSQL($strSQL);
         }
-        $data="<div class='table-content'><nav aria-label='breadcrumb'>
+        $data="<div class='table-content m-2'><nav aria-label='breadcrumb'>
                         <ol class='breadcrumb'>
                         <li class='breadcrumb-item active'aria-current='page'>Đơn hàng</li>
                         </ol>

@@ -98,15 +98,15 @@ CREATE TABLE  nhacungcap  (
    DiaChi  varchar(50) NOT NULL,
    Email  varchar(25) NOT NULL,
    SoDienThoai  varchar(13) NOT NULL,
-   TrangThai int
+   TrangThai int,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table  nhacungcap 
 --
 
-INSERT INTO  nhacungcap  ( MaNCC ,  TenNCC ,  DiaChi ,  Email ,  SoDienThoai ,  MaSP ) VALUES
-('1', 'Huy', 'BinhThuan', 'Huynguyen120304@gmail.com', '0367644927', NULL);
+INSERT INTO  nhacungcap  ( MaNCC ,  TenNCC ,  DiaChi ,  Email ,  SoDienThoai) VALUES
+('1', 'Huy', 'BinhThuan', 'Huynguyen120304@gmail.com', '0367644927');
 
 -- --------------------------------------------------------
 
@@ -115,7 +115,7 @@ INSERT INTO  nhacungcap  ( MaNCC ,  TenNCC ,  DiaChi ,  Email ,  SoDienThoai ,  
 --
 
 CREATE TABLE  nhanvien  (
-   MaNhanVien  varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+   MaNhanVien  varchar(15) NOT NULL,
    HoTen  varchar(20) NOT NULL,
    GioiTinh  varchar(5) NOT NULL,
    SoDienThoai  varchar(13) NOT NULL,
@@ -156,28 +156,28 @@ CREATE TABLE  sanpham  (
 -- Dumping data for table  sanpham 
 --
 
-INSERT INTO  sanpham  ( MaSP ,  TenSP ,  HinhAnh ,  SoLuongSP ,  GiaSP ,  TrangThai ,  MaTH ,  MaDM ) VALUES
-('1', 'Sửa rửa mặt', '\"C:\\Users\\ADMIN\\Desktop\\Học Kì 2-Năm2\\Phân tích th', 35, 350000, 1, '1', '1'),
-('2', 'Kem Dưỡng AHC Làm Sá', 'Kem Dưỡng AHC Làm Sáng Vùng Da Mắt.webp', 500, 500000, 1, '1', '1'),
-('3', 'Sữa Chống Nắng La Ro', 'product-variation-50-ml-front.webp', 400, 560000, 1, '2', '1'),
-('4', 'Nước Cân Bằng Chống ', 'Nước Cân Bằng Chống Lão.webp', 970, 970000, 1, '1', '1'),
-('5', 'Tinh Chất Dưỡng Trắn', 'Tinh Chất Dưỡng Trắng Da.webp', 340, 340000, 1, '3', '1'),
-('6', 'Tinh Chất Giảm Mụn, ', 'Tinh Chất Giảm Mụn, Giảm Thâm.webp', 900, 900000, 1, '1', '1'),
-('7', 'Son Tint Lì Peripera', 'Son Tint Lì Peripera Ink.webp', 250, 250000, 1, '3', '2'),
-('8', 'Bảng Phấn Mắt 12 Màu', 'Bảng Phấn Mắt 12 Màu Perfect Diary Explorer.webp', 480, 480000, 1, '4', '2'),
-('9', 'Phấn Nước Che Khuyết', 'Phấn Nước Che Khuyết Điểm Mịn Lì.webp', 700, 700000, 1, '3', '2'),
-('10', 'Chì Chân Mày THE FAC', 'Chì Chân Mày THE FACE SHOP.webp', 129, 129000, 1, '5', '2'),
-('11', 'Son Dưỡng Môi Chăm S', '[cmm]', 639, 639000, 1, '6', '2'),
-('12', 'Bộ Cọ Trang Điểm Mắt', 'Bộ Cọ Trang Điểm Mắt 6 Cây TOOLA - TLA019.webp', 48, 48000, 1, '7', '2'),
-('13', 'Son Tint Nước Siêu L', 'Son Tint Nước Siêu Lì.webp', 155, 155000, 1, '8', '2'),
-('14', 'Bộ Sưu Tập Phiên Bản', 'Bộ Sưu Tập Phiên Bản.webp', 500, 500000, 1, '8', '2'),
-('15', 'Men Stay Simplicity ', '1.jpg', 190, 190000, 1, '12', '3'),
-('16', 'Combo 3in1 Nâng Tầm ', '2.jpg', 1200, 1200000, 1, '13', '3'),
-('17', 'Bộ Dưỡng Da Nâng Tầm', '3.jpg', 1300, 1300000, 1, '14', '3'),
-('18', 'Sữa Tắm Nam Nâng Tầm', '4.jpg', 130, 130000, 1, '15', '3'),
-('19', 'Kem Chống Nắng Dành ', '5.jpg', 330, 330000, 1, '16', '3'),
-('20', 'Kem trắng da trị nám', '6.jpg', 2000, 2000000, 1, '18', '3'),
-('21', 'Kem Dưỡng Trắng Da T', 'Soyraie.jpg', 250, 250000, 1, '17', '3',);
+INSERT INTO `sanpham` (`MaSP`, `TenSP`, `HinhAnh`, `SoLuongSP`, `GiaSP`, `TrangThai`, `MaTH`, `MaDM`, `MaNCC`) VALUES
+('1', 'Sửa rửa mặt', '???', 35, 350000, 1, '1', '1', '1'),
+('2', 'Kem Dưỡng AHC Làm Sáng Vùng Da Mắt Luminous Glow Real Eye Cream For Face 30Ml', 'Kem Dưỡng AHC Làm Sáng Vùng Da Mắt.webp', 495, 500000, 1, '1', '1', '1'),
+('3', 'Sữa Chống Nắng La Roche-Posay Kiềm Dầu Suốt 12h Anthelios UVMUNE 400 Oil Control Fluid 50ml', 'product-variation-50-ml-front.webp', 400, 560000, 1, '2', '1', '1'),
+('4', 'Nước Cân Bằng Chống Lão Hóa Làm Sáng Da AHC 365 Red Toner 100Ml', 'Nước Cân Bằng Chống Lão.webp', 970, 970000, 1, '1', '1', '1'),
+('5', 'Tinh Chất Dưỡng Trắng Da Dermatory Pro Niacin Shot Brightening Ampoule 20Ml', 'Tinh Chất Dưỡng Trắng Da.webp', 340, 340000, 1, '3', '1', '1'),
+('6', 'Tinh Chất Giảm Mụn, Giảm Thâm & Thu Nhỏ Lỗ Chân, ', 'Tinh Chất Giảm Mụn, Giảm Thâm.webp', 900, 900000, 1, '1', '1', '1'),
+('7', 'Son Tint Lì Peripera Ink Mood Matte Tint 4G', 'Son Tint Lì Peripera Ink.webp', 250, 250000, 1, '3', '2', '1'),
+('8', 'Bảng Phấn Mắt 12 Màu Perfect Diary Explorer Twelve Eyeshadow Palette #13 Red Fox 14G (Kèm Cọ)', 'Bảng Phấn Mắt 12 Màu Perfect Diary Explorer.webp', 473, 480000, 1, '4', '2', '1'),
+('9', 'Phấn Nước Che Khuyết Điểm Mịn Lì Clio Kill Cover The New Founwear Cushion SPF50+ PA+++ (15gx2)', 'Phấn Nước Che Khuyết Điểm Mịn Lì.webp', 700, 700000, 1, '3', '2', '1'),
+('10', 'Chì Chân Mày THE FACE SHOP Designing Eyebrow Pencil 0.3G', 'Chì Chân Mày THE FACE SHOP.webp', 129, 129000, 1, '5', '2', '1'),
+('11', 'Son Dưỡng Môi Chăm Sóc Dịu Nhẹ Dear Dahlia Blooming Edition Paradise Tinted Blooming Balm – Fantasy 3.8G', '[cmm]', 639, 639000, 1, '6', '2', '1'),
+('12', 'Bộ Cọ Trang Điểm Mắt 6 Cây TOOLA - TLA019', 'Bộ Cọ Trang Điểm Mắt 6 Cây TOOLA - TLA019.webp', 48, 48000, 1, '7', '2', '1'),
+('13', 'Son Tint Nước Siêu Lì, Lâu Trôi Romand Glasting Water Tint 4g', 'Son Tint Nước Siêu Lì.webp', 155, 155000, 1, '8', '2', '1'),
+('14', 'Bộ Sưu Tập Phiên Bản Giới Hạn Romand x Sanrio My Melody Kuromi', 'Bộ Sưu Tập Phiên Bản Giới Hạn Romand x Sanrio My M', 500, 500000, 1, '8', '2', '1'),
+('15', 'Men Stay Simplicity Facial Moisturizer 80g', '1.jpg', 190, 190000, 1, '12', '3', '1'),
+('16', 'Combo 3in1 Nâng Tầm Nam Giới MERLIN for men', '2.jpg', 1200, 1200000, 1, '13', '3', '1'),
+('17', 'Bộ Dưỡng Da Nâng Tầm Nam Giới 5 Món DSiuan', '3.jpg', 1300, 1300000, 1, '14', '3', '1'),
+('18', 'Sữa Tắm Nam Nâng Tầm Đẳng Cấp 500ml D\'Vi Nature', '4.jpg', 130, 130000, 1, '15', '3', '1'),
+('19', 'Kem Chống Nắng Dành Cho Nam Giới - The Inkey List SPF 30 PA++++', '5.jpg', 330, 330000, 1, '16', '3', '1'),
+('20', 'Kem trắng da trị nám IMAGE ILUMA Image Skincare', '6.jpg', 2000, 2000000, 1, '18', '3', '1'),
+('21', 'Kem Dưỡng Trắng Da Toàn Thân Nâng Tông Tức Thì White Conc', 'Soyraie.jpg', 250, 250000, 1, '17', '3', '1');
 
 -- --------------------------------------------------------
 

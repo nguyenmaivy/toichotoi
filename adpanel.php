@@ -82,7 +82,7 @@
                         <li class="list-group-item model-item">Báo cáo theo khoảng thời gian</li>
                     </ul>
                     </div>
-                    <div class="model-content-tkbh mt-5">
+                    <div class="model-content-tkbh mt-5 m-2">
                     </div>
                 </div>
                 <div class="model-qlkho model-right">

@@ -105,6 +105,7 @@ if(userlogin?.flag){
     $(".name_login").text(userlogin.name)
     $(".user-dn").addClass("status")
     $(".name_login").removeClass("js_namelogin")
+    LoginOption("ADMIN")
 }
 else{
     $(".name_login").text("Đăng nhập")
@@ -114,7 +115,7 @@ else{
         $(".modal-login").css("display", "flex");
         console.log("cmmm")
     })
-
+    LoginOption("KH")
 }
 //Xử lý logout
 $(".user-logout").click(function(){
@@ -151,4 +152,18 @@ function AddCart(id,soluong=1){
             localStorage.setItem("Cart",JSON.stringify(Cart))
         }
     }
+}
+function LoginOption(level){
+    var html=`<li><a class="option-item">
+    <i class="fa fa-user" aria-hidden="true"></i> Trang cá nhân</a></li>
+    <li>
+    
+    `
+    if(level=="ADMIN"){
+        html+=`<a class="option-item" href='adpanel.php'><i class="fa fa-book" aria-hidden="true"></i>Vào trang Admin</a></li>`
+    }else{
+        html+=`<a class="option-item"><i class="fa fa-book" aria-hidden="true"></i>Xem lại đơn hàng</a></li>`
+    }
+    html+=`<li><a class="user-logout option-item" href="index.php?chon&id=home"><i class="fa fa-sign-out" aria-hidden="true"></i> Thoát</a></li>`
+    $(".option-dn").html(html)
 }

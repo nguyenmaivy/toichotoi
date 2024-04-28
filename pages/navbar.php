@@ -468,12 +468,8 @@
                         <div class="navbar-nav ml-0 py-0 container_login">
                             <div class="name_login"></div>
                             <div class="user-dn p-2">
-                                <ul class="option-dn">
-                                <li><a class="option-item">
-                                <i class="fa fa-user" aria-hidden="true"></i> Trang cá nhân</a></li>
-                                <li><a class="option-item">
-                                <i class="fa fa-book" aria-hidden="true"></i> Lịch sử đơn</a></li>
-                                <li><a class="user-logout option-item" href="index.php?chon&id=home"><i class="fa fa-sign-out" aria-hidden="true"></i> Thoát</a></li>
+                                <ul class="option-dn mb-0">
+                                
                                 </ul>
                             </div>
                         </div>
