@@ -54,9 +54,9 @@
                     <i class="fas fa-heart text-primary"></i>
                     <span class="badge">0</span>
                 </a>
-                <a href="" class="btn border">
+                <a class="btn border" onclick="ClickIconCart()">
                     <i class="fas fa-shopping-cart text-primary"></i>
-                    <span class="badge">0</span>
+                    <span class="badge js_numcart">0</span>
                 </a>
             </div>
         </div>
@@ -76,7 +76,7 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link" data-toggle="dropdown">Chăm sóc da <i
                                     class="fa fa-angle-down float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
+                            <!-- <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
                                 <li>
                                     <a href="" class="dropdown-item">Làm sạch</a>
                                     <div class="suboverlaymenu">
@@ -211,13 +211,13 @@
                                         </div>
                                     </div>
                                 </li>
-                            </div>
+                            </div> -->
                         </div>
 
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link" data-toggle="dropdown">Chăm sóc cơ thể <i
                                     class="fa fa-angle-down float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
+                            <!-- <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
                                 <li>
                                     <a href="" class="dropdown-item">Làm sạch</a>
                                     <div class="suboverlaymenu">
@@ -277,12 +277,12 @@
                                         </div>
                                     </div>
                                 </li>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link" data-toggle="dropdown">Trang điểm <i
                                     class="fa fa-angle-down float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
+                            <!-- <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
                                 <li>
                                     <a href="" class="dropdown-item">Mặt</a>
                                     <div class="suboverlaymenu">
@@ -344,13 +344,13 @@
                                     <a href="" class="dropdown-item">Make up set</a>
                                 </li>
 
-                            </div>
+                            </div> -->
                         </div>
                         <!-- <a href="" class="nav-item nav-link">Sleepwear</a> -->
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link" data-toggle="dropdown">Nước hoa <i
                                     class="fa fa-angle-down float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
+                            <!-- <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
                                 <li>
                                     <a href="" class="dropdown-item">Nước hoa toàn thân</a>
                                     <div class="suboverlaymenu">
@@ -366,12 +366,12 @@
                                     </div>
                                 </li>
 
-                            </div>
+                            </div> -->
                         </div>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link" data-toggle="dropdown">Dụng cụ làm đẹp <i
                                     class="fa fa-angle-down float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
+                            <!-- <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
                                 <li>
                                     <a href="" class="dropdown-item">Dành cho mặt</a>
                                     <div class="suboverlaymenu">
@@ -431,7 +431,7 @@
                                     </div>
                                 </li>
 
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </nav>
@@ -450,20 +450,18 @@
                             <div href="index.php" class="nav-item nav-link active nav-top">Trang chủ</div>
                             <div href="" class="nav-item nav-link nav-top">Sản phẩm</div>
 
-                            <div href="#" class="nav-item nav-link nav-top">Khuyến mãi</div>
-                            <div href="#" class="nav-item nav-link nav-top">Thương hiệu</div>
-                            <div href="#" class="nav-item nav-link nav-top">Sản phẩm mới</div>
-
+                            <div href="#" class="nav-item nav-link nav-top">Giỏ hàng</div>
+                            <div href="#" class="nav-item nav-link nav-top">Thanh toán</div>
                             <!-- <a href="detail.html" class="nav-item nav-link">Shop Detail</a> -->
 
-                            <div class="nav-item dropdown">
+                            <!-- <div class="nav-item dropdown">
                                 <div href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Trang</div>
                                 <div class="dropdown-menu rounded-0 m-0">
                                     <div class="dropdown-item nav-top">Giỏ hàng</div>
                                     <div class="dropdown-item nav-top">Thanh toán</div>
                                 </div>
-                            </div>
-                            <div class="nav-item nav-link nav-top">Góp ý</div>
+                            </div> -->
+                            <!-- <div class="nav-item nav-link nav-top">Góp ý</div> -->
                         </div>
                         <div class="navbar-nav ml-0 py-0 container_login">
                             <div class="name_login"></div>

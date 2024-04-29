@@ -98,7 +98,7 @@ CREATE TABLE  nhacungcap  (
    DiaChi  varchar(50) NOT NULL,
    Email  varchar(25) NOT NULL,
    SoDienThoai  varchar(13) NOT NULL,
-   TrangThai int,
+   TrangThai int
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -190,13 +190,14 @@ CREATE TABLE  taikhoan  (
    TenNhomQuyen  varchar(20) NOT NULL,
    MatKhau  varchar(20) NOT NULL,
    SDT  varchar(10) NOT NULL,
-   DiaChi varchar(50) NOT NULL
+   DiaChi varchar(50) NOT NULL,
+   TrangThai varchar(10)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Đổ dữ liệu cho  taikhoan 
-INSERT INTO  taikhoan ( UserName ,  TenNhomQuyen ,  MatKhau ,  SDT, DiaChi) 
-VALUES ('Admin','admin','Admin@','0123456789', 'Thôn Tiên Sơn 2, Xã Tân Sơn, Quận 8, Hồ Chí Minh');
--- --------------------------------------------------------
+INSERT INTO  taikhoan ( UserName ,  TenNhomQuyen ,  MatKhau ,  SDT, DiaChi, TrangThai) 
+VALUES ('Admin','Admin','Admin@','0123456789', 'Thôn Tiên Sơn 2, Xã Tân Sơn, Quận 8, Hồ Chí Minh' ,'show');
+-- -------------------------------------------------------- 
 
 --
 -- Table structure for table  thuonghieu 

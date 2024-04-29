@@ -23,7 +23,7 @@
         </div>
         <div id="content">
             <div class="left-content">
-                <div class="container active" id="trang_chu">
+                <div class="container active" id="cmm">
                     <i class="ti-home"></i>
                     Trang chủ Admin
                 </div>
@@ -90,8 +90,9 @@
                 <div class="model-thongkenhap model-right">
                    
                 </div>
+                </div>
                 <div class="model-nhacc model-right">
-
+                    
                 </div>
                 <!-- <div class="model-in model-right">
                     <div class="top-menu">

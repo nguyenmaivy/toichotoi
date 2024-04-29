@@ -11,7 +11,7 @@
                 </li>
             </ul>
             <!-- LOGIN -->
-            <form action="" autocomplete="off" id="form-1">
+            <form action="" autocomplete="off" id="form-dn">
                 <div class="modal_content-login">
                     <div class="modal_content-input-box form-group">
                         <label for="user-login">Số điện thoại</label>
@@ -32,7 +32,7 @@
                 </div>
             </form>
             <!-- REGISTER -->
-            <form action="" onsubmit="return checkForm()" autocomplete="off" id="form-2">
+            <form action="" onsubmit="return checkForm()" autocomplete="off" id="form-dk">
                 <div class="modal_content-register">
                     <div class="modal_content-input-box form-group">
                         <label for="user1-register">Số điện thoại</label>
@@ -58,6 +58,11 @@
                     <div class="modal_content-input-box form-group">
                         <label for="username-register">Tên đăng ký</label>
                         <input type="text" placeholder="Nhập tên đăng ký" id="username-register" name="username_register">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="modal_content-input-box form-group">
+                        <label for="address-register">Địa chỉ</label>
+                        <input type="text" placeholder="Nhập địa chỉ" id="address-register" name="address_register">
                         <span class="form-message"></span>
                     </div>
                       <div class="modal_content-btn-box">

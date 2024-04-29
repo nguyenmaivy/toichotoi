@@ -26,6 +26,11 @@
                 <input type="text" placeholder="Nhập tên đăng ký" id="username-register" name="username_register">
                 <span class="form-message"></span>
             </div>
+            <div class="modal_content-input-box form-group">
+                        <label for="address-register">Địa chỉ</label>
+                        <input type="text" placeholder="Nhập địa chỉ" id="address-register" name="address_register">
+                        <span class="form-message"></span>
+                    </div>
             <span class="error-login mb-2">Tài khoản tồn tại</span>
             <div class="modal_content-btn-box">
                 <button type="submit" class="btn-login btn-form btn-default" id="btn-register"><span>Thêm tài khoản</span></button>
@@ -34,7 +39,7 @@
             </div>
     </form>
 </div>
-<!-- <script>
+<script>
     $(".btn-closee").click(function(){
         $(".btn-login").addClass("btn-default")
     })
@@ -53,7 +58,7 @@
             Validator.isConfirmed("#confirm_password",function(){
                 return $('#password-register').val();
             }),
-
+            Validator.isRequired('#address-register'),
             Validator.isRequired("#username-register"),
             Validator.isMinLength("#username-register",6),
             Validator.isMaxLength("#username-register",25),
@@ -84,4 +89,4 @@
             }
         }
     })
-</script> -->
+</script>

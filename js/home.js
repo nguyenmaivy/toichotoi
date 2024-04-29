@@ -23,7 +23,7 @@ $('input').on("input",() =>{
     $(".error-login").hide()
 })
 Validator({
-    form:'#form-1',
+    form:'#form-dn',
     rules:[
     Validator.isRequired('#user-login'),
     Validator.isSDT('#user-login'),
@@ -63,7 +63,7 @@ Validator({
     }
 })
 Validator({
-    form:'#form-2',
+    form:'#form-dk',
     rules:[
     Validator.isRequired('#user1-register'),
     Validator.isSDT('#user1-register'),
@@ -71,25 +71,27 @@ Validator({
     Validator.isMinLength('#password-register',6),
     Validator.isConfirmed('#confirm_password',function(){
         return $('#password-register').val();
-        
     }),
+    Validator.isRequired('#address-register'),
     Validator.isRequired('#username-register'),
-    Validator.isMaxLength('#username-register',10),
+    Validator.isMaxLength('#username-register',25),
+    Validator.isMinLength("#username-register",6),
+
     ],
     errorElement:'.form-message',
     onSubmit: (value) =>{
         const data=JSON.stringify(value);
         xhr=new XMLHttpRequest();
-        xhr.open('POST','./pages/module/xldangky.php');
+        xhr.open('POST','./pages/module/taikhoan.php?them');
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.send('jsonData='+data);
+        xhr.send('dataJSON='+data);
         xhr.onload = function () {
         //Đợi và xử lý phản hồi của server
         if (xhr.status >= 200 && xhr.status < 300) {
             if(xhr.responseText=='1'){
                 $(".modal-login").css("display","none")
                 alert("Tạo tài khoản thành công, vui lòng đăng nhập để tiếp tục.");
-                $("#form-2").reset()
+                $("#form-dk").reset()
             }
             else {
                 $(".error-login").show()
@@ -105,7 +107,8 @@ if(userlogin?.flag){
     $(".name_login").text(userlogin.name)
     $(".user-dn").addClass("status")
     $(".name_login").removeClass("js_namelogin")
-    LoginOption("ADMIN")
+    LoginOption(userlogin.quyen)
+    
 }
 else{
     $(".name_login").text("Đăng nhập")
@@ -115,7 +118,6 @@ else{
         $(".modal-login").css("display", "flex");
         console.log("cmmm")
     })
-    LoginOption("KH")
 }
 //Xử lý logout
 $(".user-logout").click(function(){
@@ -150,20 +152,74 @@ function AddCart(id,soluong=1){
             }
             sanpham=null
             localStorage.setItem("Cart",JSON.stringify(Cart))
+            if(Cart['arr']){
+                console.log(Cart['arr'].length)
+                $(".js_numcart").text(Cart['arr'].length)
+            }
         }
     }
+    else 
+        alert("Phải đăng nhập mới có thể mua hàng")
 }
 function LoginOption(level){
     var html=`<li><a class="option-item">
     <i class="fa fa-user" aria-hidden="true"></i> Trang cá nhân</a></li>
     <li>
-    
     `
-    if(level=="ADMIN"){
+    if(level=="Admin"){
+        html+=`<a class="option-item" href='admin.html'><i class="fa fa-book" aria-hidden="true"></i>Trang phân quyền</a></li>`
         html+=`<a class="option-item" href='adpanel.php'><i class="fa fa-book" aria-hidden="true"></i>Vào trang Admin</a></li>`
-    }else{
+    }
+    else if(level=="KH"){
         html+=`<a class="option-item"><i class="fa fa-book" aria-hidden="true"></i>Xem lại đơn hàng</a></li>`
+    }
+    else {
+        html+=`<a class="option-item" href='adpanel.php'><i class="fa fa-book" aria-hidden="true"></i>Vào trang Admin</a></li>`
     }
     html+=`<li><a class="user-logout option-item" href="index.php?chon&id=home"><i class="fa fa-sign-out" aria-hidden="true"></i> Thoát</a></li>`
     $(".option-dn").html(html)
+}
+// function TangGioHang(){
+//     $('.quantity button').on('click', function () {
+//         var button = $(this);
+//         var oldValue = button.parent().parent().find('input').val();
+//         if (button.hasClass('btn-plus')) {
+//             var newVal = parseFloat(oldValue) + 1;
+//         } else {
+//             if (oldValue > 0) {
+//                 var newVal = parseFloat(oldValue) - 1;
+//             } else {
+//                 newVal = 0;
+//             }
+//         }
+//         button.parent().parent().find('input').val(newVal);
+//     });
+// }
+function TangNe(index){
+    var oldValue=Number($(".js_soluong"+index).val())
+    console.log(oldValue)
+    $(".js_soluong"+index).val(oldValue+1)
+    Cart['arr'].forEach((value) => {
+        if(value['MaSP']==index){
+            tongHoaDon+=Number(value['GiaSP'])
+            value['soluong']=oldValue+1
+        }
+    })
+    // $(".js_tongtien").text(tongHoaDon)
+    localStorage.setItem("Cart",JSON.stringify(Cart))
+    RenderGioHang()
+
+}
+function GiamNe(index){
+    var oldValue=Number($(".js_soluong"+index).val())
+    $(".js_soluong"+index).val(oldValue-1)
+    Cart['arr'].forEach((value) => {
+        if(value['MaSP']==index){
+            tongHoaDon-=Number(value['GiaSP'])
+            value['soluong']=oldValue-1
+        }
+    })
+    // $(".js_tongtien").text(tongHoaDon)
+    localStorage.setItem("Cart",JSON.stringify(Cart))
+    RenderGioHang()
 }

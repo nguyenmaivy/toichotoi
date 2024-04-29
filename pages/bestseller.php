@@ -4,7 +4,7 @@
         </div>
         <div class="row px-xl-5 pb-3">
             <?php 
-                include './pages/module/controller.php';
+                include 'module/controller.php';
                 include 'product_actions.php';
                 $sanpham=new sanpham;
                 $result=$sanpham->dssanpham();

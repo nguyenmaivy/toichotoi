@@ -35,16 +35,16 @@
     <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
     <?php
             // include './pages/topbar.php' ;
-            include './pages/navbar.php' ;
+            include_once './pages/navbar.php' ;
     ?>
     <div id="root">
     <?php 
-       include './pages/home.php';
-       include './pages/dangky.php';
+       include_once './pages/home.php';
+       include_once './pages/dangky.php';
     ?>
     </div>
     <?php 
-    include './pages/footer.php' ;
+    include_once './pages/footer.php' ;
     ?>
     
 

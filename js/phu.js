@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    if(Cart['arr']){
+        $(".js_numcart").text(Cart['arr'].length)
+    }
     const root = $("#root");
     $('.nav-top').click(function (e) {
         $('.nav-link').removeClass("active");
@@ -52,13 +55,6 @@ $(document).ready(function () {
                     })
                 });
                 break;
-            case 'Khuyến mãi':
-
-                break;
-            case 'Thương hiệu':
-                break;
-            case 'Sản phẩm mới':
-                break;
             case 'Góp ý':
                 root.load("./pages/contact.php", function () {
                     $(e.target).addClass("active");
@@ -71,6 +67,10 @@ $(document).ready(function () {
             case 'Giỏ hàng':
                 root.load("./pages/cart.php", function () {
                     RenderGioHang();
+                    $(e.target).addClass("active");
+                    $(".js_dathang").on("click",function () {
+                        DonHang()
+                    })
                 });
                 break;
         }
@@ -281,14 +281,14 @@ function RenderGioHang() {
             <td class="align-middle">
                 <div class="input-group quantity mx-auto" style="width: 100px;">
                     <div class="input-group-btn">
-                        <button class="btn btn-sm btn-primary btn-minus">
+                        <button class="btn btn-sm btn-primary btn-minus" onclick="GiamNe(${value['MaSP']})">
                             <i class="fa fa-minus"></i>
                         </button>
                     </div>
-                    <input type="text" class="form-control form-control-sm bg-secondary text-center"
+                    <input type="text" class="form-control form-control-sm bg-secondary text-center js_soluong${value['MaSP']}"
                         value="${value['soluong']}">
                     <div class="input-group-btn">
-                        <button class="btn btn-sm btn-primary btn-plus">
+                        <button class="btn btn-sm btn-primary btn-plus" onclick="TangNe(${value['MaSP']})">
                             <i class="fa fa-plus"></i>
                         </button>
                     </div>
@@ -306,9 +306,7 @@ function RenderGioHang() {
         $(".js_table_cart").html(tableGioHang)
         $(".card-body").html(bodyGioHang)
         $(".js_tongtien").text(tongHoaDon)
-        $(".js_dathang").click(function () {
-            DonHang()
-        })
+        
     }
 }
 function DeleteCart(id) {
@@ -339,17 +337,39 @@ function DonHang() {
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.send("dataJSON=" + JSON.stringify(account));
         xhr.onload = function () {
-            var message=xhr.responseText()
+            var message=xhr.responseText
             if(message=="sucsess")
                 alert("Đơn hàng đã đặt thành công")
             else 
                 alert("Đơn hàng bị lỗi, vui lòng kiểm tra kết nối mạng")
+            Cart['arr'] = null
+            localStorage.setItem("Cart", JSON.stringify(Cart))
+            setTimeout(function(){
+                location.reload()
+            },0)
         }
-        Cart['arr'] = null
-        localStorage.setItem("Cart", JSON.stringify(Cart))
-        location.reload();
+        
     }
     else {
         alert("Đặt hàng không thành công, vui lòng kiểm tra đăng nhập và giỏ hàng")
     }
+}
+function ClickIconCart(){
+    const root = $("#root");
+    $('.nav-top').each(function(){
+        if($(this).text().trim()=="Giỏ hàng"){
+            var _this=this
+            root.load("./pages/cart.php", function () {
+                RenderGioHang();
+                $('.nav-top.active').removeClass("active")
+                $(_this).addClass("active");
+                console.log($(this))
+                $(".js_dathang").on("click",function () {
+                    DonHang()
+                })
+                var cart = document.getElementById("cart");
+                cart.scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+    })
 }

@@ -163,8 +163,8 @@ class taikhoan
     function themtk($data)
     {
         $this->conn->constructor();
-        $strSQL = "INSERT INTO `taikhoan`(`UserName`, `MatKhau`, `SDT`, `TenNhomQuyen`, `TrangThai`) 
-            VALUES ('" . $data->username_register . "','" . $data->password_register . "','" . $data->user1_register . "','KH', 'show')";
+        $strSQL = "INSERT INTO `taikhoan`(`UserName`, `MatKhau`, `SDT`, `TenNhomQuyen`, `TrangThai`, `DiaChi`) 
+            VALUES ('" . $data->username_register . "','" . $data->password_register . "','" . $data->user1_register . "','KH', 'show','".$data->address_register."')";
         $result = $this->conn->excuteSQL($strSQL);
         $this->conn->disconnect();
         return $result;
@@ -190,26 +190,6 @@ class taikhoan
         $this->conn->constructor();
         $strSQL="UPDATE `taikhoan` SET `TenNhomQuyen`='".$data->quyen."' WHERE `SDT`='".$data->user1_register."'";
         $result=$this->conn->excuteSQL($strSQL);
-        return $result;
-    }
-    function taotaikhoan($data){
-        $strSQL = "INSERT INTO `account` (`TenND`, `SĐT`, `MaQuyen`, `Status`, `CreTime`, `Password`) 
-           VALUES ('" . $data['username_register'] . "', '" . $data['user1_register'] . "', 'KH', 'Đang hoạt động',NOW(), '".$data['password_register']."')";
-        $result=$this->conn->excuteSQL($strSQL);
-        $this->conn->disconnect();
-        return $result;
-    }
-}
-class nhacungcap {
-    private $conn;
-    function __construct()
-    {
-        $this->conn = new connect;
-    }
-    function dsnhacc(){
-        $this->conn->constructor();
-        $strSQL ="SELECT * FROM `nhacungcap` WHERE 1";
-        $result = $this->conn->excuteSQL($strSQL);
         return $result;
     }
 }
@@ -316,6 +296,61 @@ class donhang{
         $strSQL="INSERT INTO `chitietdonhang`(`MaChiTietDonHang`, `SoLuong`, `GiaCa`, `MaDonHang`, `MaSP`) 
         VALUES ('".($row['total']+1)."','".$data->soluong."','".$data->GiaSP."','".($this->madonhang)."','".$data->MaSP."')";
         $result=$this->conn->excuteSQL($strSQL);
+        $this->conn->disconnect();
+        return $result;
+    }
+}
+class nhacungcap {
+    private $conn;
+    function __construct()
+    {
+        $this->conn = new connect;
+    }
+    function dsnhacc(){
+        $this->conn->constructor();
+        $strSQL ="SELECT * FROM `nhacungcap` WHERE `TrangThai`='1'";
+        $result = $this->conn->excuteSQL($strSQL);
+        return $result;
+    }
+    function suanhacc($data){
+        $this->conn->constructor();
+        $strSQL="UPDATE `nhacungcap` SET `TenNCC`='".$data->TenNCC."',`DiaChi`='".$data->DiaChi."',`Email`='".$data->Email."',`SoDienThoai`='".$data->SoDienThoai."' 
+        WHERE MaNCC ='".$data->MaNCC."'";
+        $result=$this->conn->excuteSQL($strSQL);
+        return $result;
+    }
+    function search($ten){
+        $this->conn->constructor();
+        $strSQL = "SELECT *
+                   FROM nhacungcap
+                   WHERE LIKE '%".$ten."%'";
+        $result = $this->conn->excuteSQL($strSQL);
+        $this->conn->disconnect();
+        return $result;
+    }
+    function nhaCC($mancc)
+    {
+        $this->conn->constructor();
+        $strSQL = "SELECT * FROM `nhacungcap` WHERE MaNCC='" . $mancc . "'";
+        $result = $this->conn->excuteSQL($strSQL);
+        $this->conn->disconnect();
+        return $result;
+    }
+    function themncc($data){
+        $this->conn->constructor();
+        $strSQL="SELECT COUNT(*) as total FROM nhacungcap";
+        $result = $this->conn->excuteSQL($strSQL);
+        $row=mysqli_fetch_array($result);
+        $macc= $row['total']+1;
+        $strSQL = "INSERT INTO `nhacungcap`(`MaNCC`, `TenNCC`, `DiaChi`, `Email`, `SoDienThoai`, `TrangThai`) VALUES ('".$macc."','".$data->TenNCC."','".$data->DiaChi."','".$data->Email."','".$data->SoDienThoai."', '1')";
+        $result = $this->conn->excuteSQL($strSQL);
+        $this->conn->disconnect();
+        return $result;
+    }
+    function xoanhacc($mancc){
+        $this->conn->constructor();
+        $strSQL = "UPDATE `nhacungcap` SET `TrangThai`='0' WHERE  MaNCC='" . $mancc . "'";
+        $result = $this->conn->excuteSQL($strSQL);
         $this->conn->disconnect();
         return $result;
     }

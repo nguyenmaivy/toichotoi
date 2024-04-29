@@ -8,7 +8,7 @@
         <!-- cmmmmm -->
         <span class="text-primary d-inline" style="position:relative;top:30px;left:250px">Chọn sản phẩm để thêm</span>
         <div class="row">
-            <div class="col-12 table-content-nhap m-2">
+            <div class="col-12 table-content-nhap">
                 <table class="table table-hover w-100" id="table_nhapkho-sanpham">
                     <thead>
                         <tr>

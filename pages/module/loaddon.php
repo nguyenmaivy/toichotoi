@@ -128,7 +128,7 @@
             $result=$conn->excuteSQL($strSQL);
             $flag=true;
             if(mysqli_num_rows($result)>0){
-                while(mysqli_fetch_assoc($result)){
+                while($row=mysqli_fetch_assoc($result)){
                     if($row['SoLuong'] > $row['SoLuongSP']){
                         $flag=false;
                         break;

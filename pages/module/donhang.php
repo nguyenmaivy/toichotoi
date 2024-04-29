@@ -5,10 +5,15 @@
         $data=$_REQUEST['dataJSON'];
         $data=json_decode($data);
         $flagHoaDon=$donhang->setHoadon($data);
-        foreach($data->arr as $item){
-            $flagChiTiet=$donhang->setChiTietDonHang($item);
+        if(is_array($data->arr)){
+            foreach($data->arr as $item){
+                $flagChiTiet=$donhang->setChiTietDonHang($item);
+            }
         }
-        if(mysqli_num_rows($flagHoaDon)>0){
+        else {
+            $flagChiTiet=$donhang->setChiTietDonHang($data->arr[0]);
+        }
+        if($flagHoaDon!=0){
             echo "sucsess";
         }
         else {

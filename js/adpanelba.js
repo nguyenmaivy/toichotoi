@@ -3,8 +3,8 @@ function cook() {
 }
 //Đọc dự liệu đăng nhập để thêm class disabled 
 function init(index) {
-    var name = [];
-    name = [[], ["Quản lý Kho"], ["Quản lý Bán Hàng"]]
+    var name = ["", "Quản lý Kho", "Quản lý Bán Hàng"];
+    name = [[], ["Quản lý Kho", "Thống kê doanh thu"], ["Quản lý Bán Hàng", "Thống kê doanh thu"]]
     $(".container.disabled").removeClass("disabled");
     $(".container").each(function () {
         name[index].forEach((i) => {
@@ -15,18 +15,8 @@ function init(index) {
         })
     })
 }
-;(function(){
-    var account=JSON.parse(sessionStorage.getItem("currentLogin"))
-    if(account.quyen=="QLBH"){
-        init(1)
-    }
-    else if(account.quyen=="QLK"){
-        init(2)
-    }
-    else if(account.quyen=="Admin"){
-        init(0)
-    }
-})()
+init(0);
+
 $("#banhang").click(function () {
     if (!$(this).hasClass("disabled")) {
         $(".menudrop-banhang").toggle("active")
@@ -37,6 +27,7 @@ $("#qlkho").click(function () {
         $(".menudrop-qlkho").toggle("active")
     }
 })
+
 //Chức năng quản lý kho
 $(".item-menu").click(function (e) {
     var text = $(this).contents().filter(function () {
@@ -154,10 +145,10 @@ function handleDuyet(id) {
     }
 }
 function inHoaDon(id) {
-    $(".table-content").load("./pages/module/xlinhoadon.php?donhang&id=" + id, function () {
+    $(".table-content").load("./pages/module/xlinhoadon.php?id=" + id, function () {
         $(".print-pdf").click(function (e) {
             e.stopPropagation();
-            window.open("./hoadon.php?donhang&id=" + id);
+            window.open("./hoadon.php?id=" + id);
         })
         $(".btn-loaddon").click(function () {
             $(".table-content").load("./pages/module/loaddon.php", function () {
@@ -180,24 +171,24 @@ function handTimeDon() {
         })
     }
 }
-function timdonhang(event) {
-
-    if (event.key == "Enter") {
+function timdonhang(event){
+    
+    if(event.key=="Enter"){
         $.post("./pages/module/loaddon.php?timdon",
-            {
-                SDT: $(".search-donhang").val(),
-            },
-            function (data, status) {
-                $(".model-content-hd").html(data)
-                viewDuyet()
-            });
+        {
+          SDT: $(".search-donhang").val(),
+        },
+        function(data,status){
+            $(".model-content-hd").html(data)
+            viewDuyet()
+        });
     }
 }
-function handTimeTK() {
+function handTimeTK(){
     var from = $("#from-time-tk").val();
     var to = $("#to-time-tk").val();
-    $(".baocao").load("./pages/thongkeban.php?khoang&from=" + from + "&to=" + to, function () {
-    })
+        $(".baocao").load("./pages/thongkeban.php?khoang&from="+from+"&to="+to,function(){
+        })
 }
 function xemThongKe() {
     $(".model-right.active").removeClass("active")
@@ -294,17 +285,17 @@ function suasanpham(masp) {
                 Validator.isRequired("#TenTH"),
                 Validator.isRequired("#TenDM"),
                 Validator.isRequired("#TenNCC"),
-
+                
             ],
-            onSubmit: function (value) {
-                const form = document.querySelector("#formanh");
+            onSubmit: function(value){
+                const form=document.querySelector("#formanh");
                 //Luồng gửi ảnh
                 var formData = new FormData(form);
-
+                
                 var xhfile = new XMLHttpRequest();
-                xhfile.open("POST", "./pages/module/upload.php?id="+masp);
+                xhfile.open("POST", "./pages/module/upload.php");
 
-                xhfile.onreadystatechange = function () {
+                xhfile.onreadystatechange = function() {
                     if (xhfile.readyState == XMLHttpRequest.DONE) {
                         var messageDiv = document.getElementById("message");
                         if (xhfile.status == 200) {
@@ -317,43 +308,33 @@ function suasanpham(masp) {
                 console.log(formData);
                 xhfile.send(formData);
                 //Luồng gửi form
-                xhr = new XMLHttpRequest();
-                xhr.open('POST', './pages/module/sanpham.php?suasp');
-                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                value['MaSP'] = masp;
-                xhr.send("dataJSON=" + JSON.stringify(value))
-                xhr.onload = function () {
-                    if (xhr.status >= 200 && xhr.status < 300) {
+                xhr=new XMLHttpRequest();
+                xhr.open('POST','./pages/module/sanpham.php?suasp');
+                xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                value['MaSP']=masp;
+                xhr.send("dataJSON="+JSON.stringify(value))
+                xhr.onload=function(){
+                    if(xhr.status>=200 && xhr.status<300){
                         console.log(xhr.responseText)
-                        if (xhr.responseText > 0) {
+                        if(xhr.responseText>0){
                             alert("Sửa thành công");
                             $(".model-content-kho").load("pages/module/danhsachsp.php")
-                        }
                     }
-                    // console.log(value);
-                    // alert(value)
+                    }
+                // console.log(value);
+                // alert(value)
                 }
             }
         })
     });
 
 }
-var dataPhieuNhap = {
-
-};
-var dataCTPN = [];
-function nhapkho() {
+function nhapkho(){
     $(".model-right.active").removeClass("active")
     $(".model-qlkho").addClass("active")
-    $(".model-qlkho").load("./pages/nhapkho.php", function () {
+    $(".model-qlkho").load("./pages/nhapkho.php",function(){
         new DataTable('#table_nhapkho-sanpham');
-        $.get("./pages/module/phieunhap.php?row", function (data, status) {
-            dataPhieuNhap['maPhieuNhap'] = Number(data) + 1;
-        });
-        dataPhieuNhap['tongTien'] = 0;
-        dataPhieuNhap['maNhanVien'] = '0123456789'
-
-        $(".them-phieunhap").click(function () {
+        $(".them-phieunhap").click(function(){
             $(".item-nhapkho.pannel").slideToggle()
             $("#form-phieunhap").hide()
             Validator({
@@ -367,59 +348,54 @@ function nhapkho() {
                     Validator.isNumber("#form_phieunhap-dongia"),
                 ],
                 errorElement: '.form-message',
-                onSubmit: function (value) {
-                    var tableE = document.querySelector("#table_phieunhap")
-                    var newRow = tableE.insertRow();
-                    var data = {};
-                    var newcell0 = newRow.insertCell(0)
-                    newcell0.innerHTML = value['f_pn_MaSP'];
-                    var newcell1 = newRow.insertCell(1)
-                    newcell1.innerHTML = value['f_pn_TenSP'];
-                    var newcell2 = newRow.insertCell(2)
-                    newcell2.innerHTML = value['f_pn_soluong'];
-                    var newcell3 = newRow.insertCell(3)
-                    newcell3.innerHTML = value['f_pn_dongia'];
-                    var newcell4 = newRow.insertCell(4)
-                    newcell4.innerHTML = Number(value['f_pn_soluong']) * Number(value['f_pn_dongia'])
+                onSubmit: function(value){
+                    var tableE=document.querySelector("#table_phieunhap")
+                    var newRow=tableE.insertRow();
+                    var newcell0=newRow.insertCell(0)
+                    newcell0.innerHTML=value['f_pn_MaSP'];
+                    var newcell1=newRow.insertCell(1)
+                    newcell1.innerHTML=value['f_pn_TenSP'];
+                    var newcell2=newRow.insertCell(2)
+                    newcell2.innerHTML=value['f_pn_soluong'];
+                    var newcell3=newRow.insertCell(3)
+                    newcell3.innerHTML=value['f_pn_dongia'];
+                    var newcell4=newRow.insertCell(4)
+                    newcell4.innerHTML=$("#form_phieunhap-nhacc option:selected").text()
+                    var newcell5=newRow.insertCell(5)
+                    newcell5.innerHTML=Number(value['f_pn_soluong'])*Number(value['f_pn_dongia'])
                     $(".item-nhapkho.pannel").slideToggle("show")
                     $(".table-content-nhap").removeClass("col-8").addClass("col-12");
                     document.querySelector("#form-phieunhap").reset()
-                    data['maPhieuNhap'] = dataPhieuNhap['maPhieuNhap']
-                    data['soLuong'] = value['f_pn_soluong'];
-                    data['donGia'] = value['f_pn_dongia'];
-                    data['maSP']= value['f_pn_MaSP'];
-                    dataCTPN.push(data)
-                    dataPhieuNhap['tongTien'] += data['soLuong'] * data['donGia']
-                    $(".tongtien-phieunhap").text(dataPhieuNhap['tongTien'])
                 }
             })
         })
     })
 }
-function thongkenhap() {
+function thongkenhap(){
     $(".model-right.active").removeClass("active")
     $(".model-thongkenhap").addClass("active")
     $(".model-thongkenhap").html(`<div class="top-menu">
     <ul class="list-group list-group-horizontal menu-container">
+        <li class="list-group-item model-item">Phiếu nhập trong ngày</li>
         <li class="list-group-item model-item">Danh sách phiếu nhập</li>
     </ul>
     </div>
     <div class="model-content-kho">
     </div>`)
-
+    
     $(".model-item").click(function (e) {
         $(".model-item.active").removeClass("active")
-        if (e.target.innerText == "Danh sách phiếu nhập") {
+        if (e.target.innerText == "Phiếu nhập trong ngày") {
             $(this).addClass("active")
-            $(".model-content-kho").load("./pages/thongkephieunhap.php",function(){
-            })
         }
-        
+        else if(e.target.innerText=="Danh sách phiếu nhập"){
+            $(this).addClass("active")
+        }
     })
 }
 
-function setValueForm(event) {
-    $("#form-phieunhap").fadeToggle(function () {
+function setValueForm(event){
+    $("#form-phieunhap").fadeToggle(function(){
         var isPanelHidden = $(this).is(":hidden");
         if (isPanelHidden) {
             $(".table-content-nhap").removeClass("col-8").addClass("col-12");
@@ -427,13 +403,19 @@ function setValueForm(event) {
             $(".table-content-nhap").removeClass("col-12").addClass("col-8");
         }
     })
-    const dataE = event.target.parentNode
-    const inputE = document.querySelector("#form-phieunhap").querySelectorAll("input")
+    const dataE=event.target.parentNode
+    const inputE=document.querySelector("#form-phieunhap").querySelectorAll("input")
     for (var i = 0; i < 2; i++) {
         inputE[i].value = dataE.cells[i].textContent;
     }
 }
-
+function handleLuuPhieu(){
+    var tableE=document.querySelector("#table_phieunhap")
+    if(table.rows.length>0){
+        //Xử lý lưu phiếu nhập vào DB
+        
+    }
+}
 function qlncc() {
     $(".model-right.active").removeClass("active")
     $(".model-nhacc").addClass("active")
@@ -510,38 +492,6 @@ function suanhacc(mancc) {
     });
 
 }
-function handleLuuPhieu(flag) {
-    var tableE = document.querySelector("#table_phieunhap")
-    if (tableE.rows.length > 1) {
-        if (flag == 'luu') {
-            luu()
-        }
-        else if (flag == "luuin") {
-            luu()
-            inphieu()
-        }
-    }else {
-        console.log("cmmm")
-        $("#myModal").fadeIn("slow", function(){
-            $("#myModal").fadeOut(5000)
-        });
-    }
-    function luu() {
-        dataPhieuNhap['maNhaCC'] = $("#form_phieunhap-nhacc").val()
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "./pages/module/phieunhap.php")
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.send("phieunhap=" + JSON.stringify(dataPhieuNhap)+"&chitietphieunhap=" + JSON.stringify(dataCTPN))
-        
-        $(".item-menu.active").click();
-    }
-    function inphieu() {
-        window.open("./hoadon.php?phieunhap&id=" + dataPhieuNhap['maPhieuNhap']);
-    }
-}
-function xemchitietnhap(id){
-    $(".table-content").load("./pages/chitietnhap.php?id="+id)
-}
 function xoanhacc(mancc) {
     const flag = confirm("Bạn có chắc muốn xóa nhà cung cấp này không?")
     if (flag) {
@@ -554,12 +504,4 @@ function xoanhacc(mancc) {
             }
         }
     }
-}
-function inphieunhap(id){
-    window.open("./hoadon.php?phieunhap&id=" + id);
-}
-function ClickTrangChu(){
-    $("#trang_chu").click(function(){
-        
-    })
 }
