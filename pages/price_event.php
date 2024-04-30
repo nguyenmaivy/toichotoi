@@ -41,7 +41,7 @@ if (isset($_REQUEST['data'])) {
     
 
     foreach ($sanpham as $row) {
-        echo '<form method="GET" action="">
+        echo '
         <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
             <div class="card product-item border-0 mb-4">
                 <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
@@ -62,7 +62,7 @@ if (isset($_REQUEST['data'])) {
                 </div>
                 </div>
                                     
-        </form>';
+        ';
     }
 }
 ?>

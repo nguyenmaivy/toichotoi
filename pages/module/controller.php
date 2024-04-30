@@ -253,9 +253,14 @@ class phieunhap{
     }
     function LuuChiTiet($data){
         $this->conn->constructor();
+        $sanpham=new sanpham;
+        $resultSP=$sanpham->sanpham($data->maSP);
+        $rowSP=mysqli_fetch_assoc($resultSP);
         $strSQL="INSERT INTO `chitietphieunhap`(`maPhieuNhap`, `maSP`, `soLuong`, `donGia`) 
         VALUES ('".$data->maPhieuNhap."','".$data->maSP."','".$data->soLuong."','".$data->donGia."')";
         $result=$this->conn->excuteSQL($strSQL);
+        $strSQL="UPDATE `sanpham` SET `SoLuongSP`='".($rowSP['SoLuongSP']+$data->soLuong)."' WHERE `MaSP`='".$data->maSP."'";
+        $this->conn->excuteSQL($strSQL);
         $this->conn->disconnect();
         return $result;
     }

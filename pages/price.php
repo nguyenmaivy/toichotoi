@@ -38,7 +38,7 @@
                     <label class="custom-control-label" for="price-5">400 - 500</label>
                     <span class="badge border font-weight-normal">168</span>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button> <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn_formprice">Submit</button> <!-- Submit button -->
             </div>
         </form>
             <div class="mb-5">

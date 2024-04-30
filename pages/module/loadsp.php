@@ -1,15 +1,12 @@
 <?php
 include './controller.php';
 $sanpham = new sanpham;
-$nhacc =new nhacungcap;
 $thuonghieu=new thuonghieu;
 $danhmuc=new danhmuc;
 if (isset($_REQUEST['maSP'])) {
     $maSP = $_REQUEST['maSP'];
     $result = $sanpham->sanpham($maSP);
     global $string;
-    $dsnhacungcap=$nhacc->dsnhacc();
-    global $datadsncc;
     global $datathuonghieu;
     global $datadanhmuc;
     $resultth=$thuonghieu->dsthuonghieu();
@@ -20,12 +17,7 @@ if (isset($_REQUEST['maSP'])) {
     while($rowdm=mysqli_fetch_array($resultdm)){
         $datadanhmuc.='<option value="'.$rowdm['MaDM'].'">'.$rowdm['TenDanhMuc'].'</option>';
     }
-    if(mysqli_num_rows($resultth)>0){
-        while($row=mysqli_fetch_assoc($dsnhacungcap)){
-            $datadsncc.='<option value="'.$row['MaNCC'].'">'.$row['TenNCC'].'</option>';
-        }
-    }
-    
+
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         
@@ -69,14 +61,6 @@ if (isset($_REQUEST['maSP'])) {
                 </select>
                 <span class="form-message"></span>
             </div>
-
-            <div class="modal_content-input-box form-group">
-                <label for="">Nhà cung cấp</label>
-                <select id="TenNCC" name="TenNCC">
-                    '.$datadsncc.'
-                </select>
-            </div>
-            
             <div class="modal_content-btn-box">
                 <button type="submit" class="btn-login btn-form btn-default" id="btn-register"><span>Xác nhận thay đổi</span></button>
             </div>

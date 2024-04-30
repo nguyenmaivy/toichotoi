@@ -293,7 +293,6 @@ function suasanpham(masp) {
                 Validator.isRequired("#GiaSP"),
                 Validator.isRequired("#TenTH"),
                 Validator.isRequired("#TenDM"),
-                Validator.isRequired("#TenNCC"),
 
             ],
             onSubmit: function (value) {
@@ -483,7 +482,6 @@ function suanhacc(mancc) {
         Validator({
             form: "#form-sua",
             rules: [
-                Validator.isRequired("#TenNCC"),
                 Validator.isRequired("#DiaChi"),
                 Validator.isRequired("#Email"),
                 Validator.isRequired("#SoDienThoai"),

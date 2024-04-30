@@ -49,10 +49,9 @@
         <div class="row px-xl-5">
             <div class="col-lg-3 col-md-12">
                 <?php require("price.php") ?>
-                <div class="border-bottom mb-4 pb-4">
+                <!-- <div class="border-bottom mb-4 pb-4">
                     <h5 class="font-weight-semi-bold mb-4">Thương hiệu</h5>
-                    <!-- tự làm tiếp nhé -->
-                </div>
+                </div> -->
                 
                 </div>
             <!-- Product search form -->

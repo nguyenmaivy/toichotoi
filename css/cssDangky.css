@@ -165,3 +165,7 @@
 .name_login {
     cursor: pointer;
 }
+.btn_formprice {
+    position: absolute;
+    top: 550px;
+}
