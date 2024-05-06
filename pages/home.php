@@ -30,56 +30,56 @@
         <div class="row px-xl-5 pb-3">
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <p class="text-right">15 Products</p>
+                    <!-- <p class="text-right">15 Products</p> -->
                     <a href="" class="cat-img position-relative overflow-hidden mb-3">
                         <img class="img-fluid" src="./img/products/SanPhamChamSocDa/DermAfirm.jpg" alt="">
                     </a>
-                    <h5 class="font-weight-semi-bold m-0">sdbrnd</h5>
+                    <h5 class="font-weight-semi-bold m-0">DermAfirm</h5>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <p class="text-right">15 Products</p>
+                    <!-- <p class="text-right">15 Products</p> -->
                     <a href="" class="cat-img position-relative overflow-hidden mb-3">
                         <img class="img-fluid" src="./img/products/SanPhamChamSocDa/DermAfirmSerum.jpg" alt="">
                     </a>
-                    <h5 class="font-weight-semi-bold m-0">sdgwne</h5>
+                    <h5 class="font-weight-semi-bold m-0">DermAfirmSerum</h5>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <p class="text-right">15 Products</p>
+                    <!-- <p class="text-right">15 Products</p> -->
                     <a href="" class="cat-img position-relative overflow-hidden mb-3">
                         <img class="img-fluid" src="./img/products/SanPhamChamSocDa/MELAOforMen.jpg" alt="">
                     </a>
-                    <h5 class="font-weight-semi-bold m-0">ferndnd</h5>
+                    <h5 class="font-weight-semi-bold m-0">MELAOforMen</h5>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <p class="text-right">15 Products</p>
+                    <!-- <p class="text-right">15 Products</p> -->
                     <a href="" class="cat-img position-relative overflow-hidden mb-3">
                         <img class="img-fluid" src="./img/products/SanPhamChamSocDa/LAMEILA.jpg" alt="">
                     </a>
-                    <h5 class="font-weight-semi-bold m-0">tự thêm vô nha</h5>
+                    <h5 class="font-weight-semi-bold m-0">LAMEILA</h5>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <p class="text-right">15 Products</p>
+                    <!-- <p class="text-right">15 Products</p> -->
                     <a href="" class="cat-img position-relative overflow-hidden mb-3">
                         <img class="img-fluid" src="./img/products/SanPhamChamSocDa/LASYA2.jpg" alt="">
                     </a>
-                    <h5 class="font-weight-semi-bold m-0">tự thêm ảnh vô vs tên sp</h5>
+                    <h5 class="font-weight-semi-bold m-0">LASYA2</h5>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <p class="text-right">15 Products</p>
+                    <!-- <p class="text-right">15 Products</p> -->
                     <a href="" class="cat-img position-relative overflow-hidden mb-3">
                         <img class="img-fluid" src="./img/products/SanPhamChamSocDa/DSIUAN1.jpg" alt="">
                     </a>
-                    <h5 class="font-weight-semi-bold m-0">tự thêm sản phẩm</h5>
+                    <h5 class="font-weight-semi-bold m-0">DSIUAN1</h5>
                 </div>
             </div>
         </div>
@@ -91,7 +91,7 @@
                     <img src="img/products/SanPhamChamSocDa/Ohui Extreme White Cream.webp" alt="">
                     <div class="position-relative" style="z-index: 1;">
                         <h5 class="text-uppercase text-primary mb-3">20% off the all order</h5>
-                        <h1 class="mb-4 font-weight-semi-bold">tự thêm vô</h1>
+                        <h1 class="mb-4 font-weight-semi-bold">Chăm sóc da</h1>
                         <a href="" class="btn btn-outline-primary py-md-2 px-md-3">Xem ngay</a>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                     <img src="img/products/SanPhamChamSocDa/SuaTamDove.jpg" alt="">
                     <div class="position-relative" style="z-index: 1;">
                         <h5 class="text-uppercase text-primary mb-3">20% off the all order</h5>
-                        <h1 class="mb-4 font-weight-semi-bold">tự thêm vô</h1>
+                        <h1 class="mb-4 font-weight-semi-bold">Sửa tắm Dove</h1>
                         <a href="" class="btn btn-outline-primary py-md-2 px-md-3">Xem ngay </a>
                     </div>
                 </div>
