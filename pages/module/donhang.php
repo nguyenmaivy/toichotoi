@@ -1,7 +1,7 @@
 <?php 
     include 'controller.php';
     $donhang=new donhang;
-    if(isset($_REQUEST['get'])){
+    if(isset($_REQUEST['set'])){
         $data=$_REQUEST['dataJSON'];
         $data=json_decode($data);
         $flagHoaDon=$donhang->setHoadon($data);

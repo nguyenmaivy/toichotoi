@@ -333,7 +333,7 @@ function DonHang() {
         account['arr']=donhang['arr']
         
         var xhr = new XMLHttpRequest()
-        xhr.open("POST", "./pages/module/donhang.php?get")
+        xhr.open("POST", "./pages/module/donhang.php?set")
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.send("dataJSON=" + JSON.stringify(account));
         xhr.onload = function () {

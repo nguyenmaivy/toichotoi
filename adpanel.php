@@ -53,13 +53,7 @@
             </div>
             <div id="right-content">
                 <div class="model-tk model-right">
-                    <div class="top-menu">
-                    <ul class="list-group list-group-horizontal menu-container">
-                        <li class="list-group-item model-item">Thêm tài khoản</li>
-                        <li class="list-group-item model-item">Sửa tài khoản</li>
-                        <li class="list-group-item model-item">Xóa tài khoản</li>
-                    </ul>
-                    </div>
+                    
                     
                     <div class="model-content">
                     </div>
@@ -75,14 +69,7 @@
                     </div>
                 </div>
                 <div class="model-thongke model-right">
-                    <div class="top-menu">
-                    <ul class="list-group list-group-horizontal menu-container">
-                        <li class="list-group-item model-item">Báo cáo hôm nay</li>
-                        <li class="list-group-item model-item">Báo cáo theo khoảng thời gian</li>
-                    </ul>
-                    </div>
-                    <div class="model-content-tkbh mt-5 m-2">
-                    </div>
+                   
                 </div>
                 <div class="model-qlkho model-right">
                    

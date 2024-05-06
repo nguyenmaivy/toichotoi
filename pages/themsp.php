@@ -82,7 +82,7 @@
             var xhfile = new XMLHttpRequest();
             xhfile.open("POST", "./pages/module/upload.php");
             xhfile.send(formData);
-            value['HinhAnh']=file.files[0].name
+            value['HinhAnh']=file.files[0]?.name
             console.log(value)
             var data = JSON.stringify(value);
             var xhr = new XMLHttpRequest();

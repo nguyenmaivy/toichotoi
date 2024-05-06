@@ -196,7 +196,7 @@ CREATE TABLE  taikhoan  (
 
 -- Đổ dữ liệu cho  taikhoan 
 INSERT INTO  taikhoan ( UserName ,  TenNhomQuyen ,  MatKhau ,  SDT, DiaChi, TrangThai) 
-VALUES ('Admin','Admin','Admin@','0123456789', 'Thôn Tiên Sơn 2, Xã Tân Sơn, Quận 8, Hồ Chí Minh' ,'show');
+VALUES ('Admin','Admin','Admin@','0123456789', 'Thôn Tiên Sơn 2, Xã Tân Sơn, Quận 8, Hồ Chí Minh' ,'active');
 -- -------------------------------------------------------- 
 
 --

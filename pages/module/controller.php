@@ -164,7 +164,7 @@ class taikhoan
     {
         $this->conn->constructor();
         $strSQL = "INSERT INTO `taikhoan`(`UserName`, `MatKhau`, `SDT`, `TenNhomQuyen`, `TrangThai`, `DiaChi`) 
-            VALUES ('" . $data->username_register . "','" . $data->password_register . "','" . $data->user1_register . "','KH', 'show','".$data->address_register."')";
+            VALUES ('" . $data->UserName . "','" . $data->MatKhau . "','" . $data->SDT . "','KH', 'active','".$data->DiaChi."')";
         $result = $this->conn->excuteSQL($strSQL);
         $this->conn->disconnect();
         return $result;
@@ -172,7 +172,7 @@ class taikhoan
     function xoatk($sdt)
     {
         $this->conn->constructor();
-        $strSQL = "DELETE FROM `taikhoan` WHERE SDT='" . $sdt . "'";
+        $strSQL = "UPDATE `taikhoan` SET `TrangThai`='deleted' WHERE SDT='".$sdt."' ";
         $result = $this->conn->excuteSQL($strSQL);
         $this->conn->disconnect();
         return $result;
@@ -181,14 +181,19 @@ class taikhoan
     {
         $this->conn->constructor();
         $strSQL = "UPDATE `taikhoan` 
-        SET `UserName`='" . $data->username_register . "',`MatKhau`='" . $data->password_register . "',`TrangThai`='" . $data->status_account . "'
-        WHERE SDT='" . $data->user1_register . "'";
+        SET `UserName`='" . $data->UserName . "',`MatKhau`='" . $data->MatKhau . "'WHERE SDT='" . $data->SDT . "'";
         $result = $this->conn->excuteSQL($strSQL);
         return $result;
     }
     function suaquyen($data){
         $this->conn->constructor();
         $strSQL="UPDATE `taikhoan` SET `TenNhomQuyen`='".$data->quyen."' WHERE `SDT`='".$data->user1_register."'";
+        $result=$this->conn->excuteSQL($strSQL);
+        return $result;
+    }
+    function dstaikhoan(){
+        $this->conn->constructor();
+        $strSQL = "SELECT * FROM `taikhoan` WHERE TrangThai='active' AND TenNhomQuyen='KH'";
         $result=$this->conn->excuteSQL($strSQL);
         return $result;
     }

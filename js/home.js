@@ -168,13 +168,13 @@ function LoginOption(level){
     `
     if(level=="Admin"){
         html+=`<a class="option-item" href='admin.html'><i class="fa fa-book" aria-hidden="true"></i>Trang phân quyền</a></li>`
-        html+=`<a class="option-item" href='adpanel.php'><i class="fa fa-book" aria-hidden="true"></i>Vào trang Admin</a></li>`
+        html+=`<a class="option-item" href='admin1.php'><i class="fa fa-book" aria-hidden="true"></i>Vào trang Admin</a></li>`
     }
     else if(level=="KH"){
         html+=`<a class="option-item"><i class="fa fa-book" aria-hidden="true"></i>Xem lại đơn hàng</a></li>`
     }
     else {
-        html+=`<a class="option-item" href='adpanel.php'><i class="fa fa-book" aria-hidden="true"></i>Vào trang Admin</a></li>`
+        html+=`<a class="option-item" href='admin1.php'><i class="fa fa-book" aria-hidden="true"></i>Vào trang Admin</a></li>`
     }
     html+=`<li><a class="user-logout option-item" href="index.php?chon&id=home"><i class="fa fa-sign-out" aria-hidden="true"></i> Thoát</a></li>`
     $(".option-dn").html(html)

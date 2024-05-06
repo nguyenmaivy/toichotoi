@@ -9,18 +9,17 @@ if (isset($_REQUEST['maSP'])) {
     global $string;
     global $datathuonghieu;
     global $datadanhmuc;
-    $resultth=$thuonghieu->dsthuonghieu();
-    while($rowth=mysqli_fetch_array($resultth)){
-        $datathuonghieu.='<option value="'.$rowth['MaTH'].'">'.$rowth['TenTH'].'</option>';
-    }
-    $resultdm=$danhmuc->dsdanhmuc();
-    while($rowdm=mysqli_fetch_array($resultdm)){
-        $datadanhmuc.='<option value="'.$rowdm['MaDM'].'">'.$rowdm['TenDanhMuc'].'</option>';
-    }
 
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
-        
+        $resultdm=$danhmuc->dsdanhmuc();
+        while ($rowdm = mysqli_fetch_array($resultdm)) {
+            $datadanhmuc .= '<option value="' . $rowdm['MaDM'] . '" ' . ($rowdm['MaDM'] == $row['MaDM'] ? "selected" :"") . '>' . $rowdm['TenDanhMuc'] . '</option>';
+        }
+        $resultth = $thuonghieu->dsthuonghieu();
+        while ($rowth = mysqli_fetch_array($resultth)) {
+            $datathuonghieu .= '<option value="' . $rowth['MaTH'] . '"'.($rowth['MaTH']==$row['MaTH'] ? "selected" : "").'>' . $rowth['TenTH'] . '</option>';
+        }
     
 
 
