@@ -309,6 +309,18 @@ class donhang{
         $this->conn->disconnect();
         return $result;
     }
+    function thongkethang(){
+        $this->conn->constructor();
+        $strSQL="SELECT 
+        (MONTH(NgayDatHang)) AS 'month', SUM(TongGiaTriDonHang) as 'total'
+        FROM
+            donhang
+        WHERE TrangThaiDonHang = '1'
+        GROUP BY NgayDatHang";
+        $result=$this->conn->excuteSQL($strSQL);
+        $this->conn->disconnect();
+        return $result;
+    }
 }
 class nhacungcap {
     private $conn;

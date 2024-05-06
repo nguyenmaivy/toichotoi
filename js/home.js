@@ -88,7 +88,7 @@ Validator({
         xhr.onload = function () {
         //Đợi và xử lý phản hồi của server
         if (xhr.status >= 200 && xhr.status < 300) {
-            if(xhr.responseText=='1'){
+            if(xhr.responseText=='success'){
                 $(".modal-login").css("display","none")
                 alert("Tạo tài khoản thành công, vui lòng đăng nhập để tiếp tục.");
                 $("#form-dk").reset()

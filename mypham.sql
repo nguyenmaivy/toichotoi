@@ -182,7 +182,7 @@ INSERT INTO `sanpham` (`MaSP`, `TenSP`, `HinhAnh`, `SoLuongSP`, `GiaSP`, `TrangT
 -- --------------------------------------------------------
 
 --
--- Table structure for table  taikhoan 
+-- Table structure for table  taikhoan
 --
 
 CREATE TABLE  taikhoan  (

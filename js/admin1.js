@@ -7,6 +7,7 @@ function activateNavLink(selector, actionFunction) {
         return actionFunction && actionFunction();
     });
 }
+activateNavLink(".js_home", ChartNe);
 if (currentLogin.quyen == 'Admin') {
     activateNavLink(".js_qlsp", qlkho);
     activateNavLink(".js_qlncc", qlncc);
@@ -15,18 +16,140 @@ if (currentLogin.quyen == 'Admin') {
     activateNavLink(".js_qltk", qlTaiKhoan);
     activateNavLink(".js_qldh", duyetdonhang);
     activateNavLink(".js_thongkebh", xemThongKe);
-    activateNavLink(".js_home");
 }
-else if(currentLogin.quyen == 'QLBH'){
+else if (currentLogin.quyen == 'QLBH') {
     activateNavLink(".js_qltk", qlTaiKhoan);
     activateNavLink(".js_thongkebh", xemThongKe);
     activateNavLink(".js_qldh", duyetdonhang);
 }
-else if(currentLogin.quyen == 'QLK'){
+else if (currentLogin.quyen == 'QLK') {
     activateNavLink(".js_qlsp", qlkho);
     activateNavLink(".js_qlncc", qlncc);
     activateNavLink(".js_nhapkho", nhapkho);
     activateNavLink(".js_thongkenhap", thongkenhap);
+}
+var dataThongKe=[]
+function GetValue(){
+    var xhr=new XHR()
+    return xhr.connect(undefined,"./pages/module/nhaCC.php?hoadon")
+    .then(function(data){
+        console.log(data)
+        dataThongKe=JSON.parse(data)
+    })
+}
+GetValue()
+function ChartNe() {
+    $(".content-wrapper").html(`<canvas id="myChart" width="400" height="400"></canvas>`);
+    function number_format(number, decimals, dec_point, thousands_sep) {
+        number = (number + '').replace(',', '').replace(' ', '');
+        var n = !isFinite(+number) ? 0 : +number,
+            prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+            sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+            dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+            s = '',
+            toFixedFix = function (n, prec) {
+                var k = Math.pow(10, prec);
+                return '' + Math.round(n * k) / k;
+            };
+        s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+        if (s[0].length > 3) {
+            s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+        }
+        if ((s[1] || '').length < prec) {
+            s[1] = s[1] || '';
+            s[1] += new Array(prec - s[1].length + 1).join('0');
+        }
+        return s.join(dec);
+    }
+    console.log(dataThongKe)
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myLineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
+            datasets: [{
+                label: "Doanh thu",
+                lineTension: 0.3,
+                backgroundColor: "rgba(78, 115, 223, 0.05)",
+                borderColor: "rgba(78, 115, 223, 1)",
+                pointRadius: 3,
+                pointBackgroundColor: "rgba(78, 115, 223, 1)",
+                pointBorderColor: "rgba(78, 115, 223, 1)",
+                pointHoverRadius: 3,
+                pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+                pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+                pointHitRadius: 10,
+                pointBorderWidth: 2,
+                data: dataThongKe,
+            }],
+        },
+        options: {
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    left: 10,
+                    right: 25,
+                    top: 25,
+                    bottom: 0
+                }
+            },
+            scales: {
+                xAxes: [{
+                    time: {
+                        unit: 'month'
+                    },
+                    gridLines: {
+                        display: false,
+                        drawBorder: false
+                    },
+                    ticks: {
+                        maxTicksLimit: 12
+                    }
+                }],
+                yAxes: [{
+                    ticks: {
+                        maxTicksLimit: 5,
+                        padding: 10,
+                        callback: function (value, index, values) {
+                            return '$' + number_format(value);
+                        }
+                    },
+                    gridLines: {
+                        color: "rgb(234, 236, 244)",
+                        zeroLineColor: "rgb(234, 236, 244)",
+                        drawBorder: false,
+                        borderDash: [2],
+                        zeroLineBorderDash: [2]
+                    }
+                }],
+            },
+            legend: {
+                display: false
+            },
+            tooltips: {
+                backgroundColor: "rgb(255,255,255)",
+                bodyFontColor: "#858796",
+                titleMarginBottom: 10,
+                titleFontColor: '#6e707e',
+                titleFontSize: 14,
+                borderColor: '#dddfeb',
+                borderWidth: 1,
+                xPadding: 15,
+                yPadding: 15,
+                displayColors: false,
+                intersect: false,
+                mode: 'index',
+                caretPadding: 10,
+                callbacks: {
+                    label: function (tooltipItem, chart) {
+                        var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+                        return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+                    }
+                }
+            }
+        }
+    });
+
 }
 function qlkho() {
     $(".content-wrapper").html(`<div class="top-menu">
@@ -224,7 +347,6 @@ function nhapkho() {
                     data['maPhieuNhap'] = dataPhieuNhap['maPhieuNhap']
                     data['soLuong'] = value['f_pn_soluong'];
                     data['donGia'] = value['f_pn_dongia'];
-                    data['maSP'] = value['f_pn_MaSP'];
                     dataCTPN.push(data)
                     dataPhieuNhap['tongTien'] += data['soLuong'] * data['donGia']
                     $(".tongtien-phieunhap").text(dataPhieuNhap['tongTien'])
@@ -422,7 +544,7 @@ function inHoaDon(id) {
         $(".btn-loaddon").click(function () {
             $(".table-content").load("./pages/module/loaddon.php", function () {
                 viewDuyet();
-            })
+            });
         });
     })
 }
