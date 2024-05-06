@@ -92,7 +92,7 @@
             xhr.onload = function() {
                 if (xhr.status >= 200 && xhr.status < 300) {
                     console.log(xhr.responseText);
-                    alert("Tạo tài khoản thành công")
+                    ModalThongBao('Thành công','Thêm sản phẩm thành công')
                     $(".model-item.active").click();
                 }
             }
