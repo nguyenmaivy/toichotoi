@@ -155,7 +155,7 @@ class taikhoan
     function timtk($sdt)
     {
         $this->conn->constructor();
-        $strSQL = "SELECT * FROM `taikhoan` WHERE SDT='" . $sdt . "'";
+        $strSQL = "SELECT * FROM `taikhoan` WHERE SDT='" . $sdt . "' AND TrangThai='active' ";
         $result = $this->conn->excuteSQL($strSQL);
         $this->conn->disconnect();
         return $result;

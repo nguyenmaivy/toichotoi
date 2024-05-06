@@ -23,7 +23,10 @@ else if(currentLogin.quyen == 'QLBH'){
     activateNavLink(".js_qldh", duyetdonhang);
 }
 else if(currentLogin.quyen == 'QLK'){
-
+    activateNavLink(".js_qlsp", qlkho);
+    activateNavLink(".js_qlncc", qlncc);
+    activateNavLink(".js_nhapkho", nhapkho);
+    activateNavLink(".js_thongkenhap", thongkenhap);
 }
 function qlkho() {
     $(".content-wrapper").html(`<div class="top-menu">
