@@ -65,17 +65,17 @@ Validator({
 Validator({
     form:'#form-dk',
     rules:[
-    Validator.isRequired('#user1-register'),
-    Validator.isSDT('#user1-register'),
-    Validator.isRequired('#password-register'),
-    Validator.isMinLength('#password-register',6),
+    Validator.isRequired('#SDT'),
+    Validator.isSDT('#SDT'),
+    Validator.isRequired('#MatKhau'),
+    Validator.isMinLength('#MatKhau',6),
     Validator.isConfirmed('#confirm_password',function(){
-        return $('#password-register').val();
+        return $('#MatKhau').val();
     }),
-    Validator.isRequired('#address-register'),
-    Validator.isRequired('#username-register'),
-    Validator.isMaxLength('#username-register',25),
-    Validator.isMinLength("#username-register",6),
+    Validator.isRequired('#DiaChi'),
+    Validator.isRequired('#UserName'),
+    Validator.isMaxLength('#UserName',25),
+    Validator.isMinLength("#UserName",6),
 
     ],
     errorElement:'.form-message',

@@ -496,7 +496,7 @@ function ModalThongBao(tittle, message, status = 'success') {
     modalDiv.className = 'modal';
     modalDiv.id = 'myModal';
 
-    // Tạo cấu trúc modal và thêm vào phần tử div vừa tạo
+    // Tạo cấu trúc modal và thêm vào phần tử div vừa tạo 
     modalDiv.innerHTML = `
         <div class="modal-dialog">
             <div class="modal-content">

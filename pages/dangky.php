@@ -35,9 +35,9 @@
             <form action="" onsubmit="return checkForm()" autocomplete="off" id="form-dk">
                 <div class="modal_content-register">
                     <div class="modal_content-input-box form-group">
-                        <label for="user1-register">Số điện thoại</label>
-                        <input placeholder="Nhập số điện thoại" id="user1-register"
-                            class="hide-number-spinner" name="user1_register">
+                        <label for="SDT">Số điện thoại</label>
+                        <input placeholder="Nhập số điện thoại" id="SDT"
+                            class="hide-number-spinner" name="SDT">
                         <span class="form-message"></span>
                     </div>
                     <!-- <div class="modal_content-input-box form-group">
@@ -46,8 +46,8 @@
                         <span class="form-message"></span>
                     </div> -->
                     <div class="modal_content-input-box form-group">
-                        <label for="password-register">Mật khẩu</label>
-                        <input type="password" placeholder="Nhập mật khẩu" id="password-register" name="password_register">
+                        <label for="MatKhau">Mật khẩu</label>
+                        <input type="password" placeholder="Nhập mật khẩu" id="MatKhau" name="MatKhau">
                         <span class="form-message"></span>
                     </div>
                     <div class="modal_content-input-box form-group">
@@ -56,13 +56,13 @@
                         <span class="form-message"></span>
                     </div>
                     <div class="modal_content-input-box form-group">
-                        <label for="username-register">Tên đăng ký</label>
-                        <input type="text" placeholder="Nhập tên đăng ký" id="username-register" name="username_register">
+                        <label for="UserName">Tên đăng ký</label>
+                        <input type="text" placeholder="Nhập tên đăng ký" id="UserName" name="UserName">
                         <span class="form-message"></span>
                     </div>
                     <div class="modal_content-input-box form-group">
-                        <label for="address-register">Địa chỉ</label>
-                        <input type="text" placeholder="Nhập địa chỉ" id="address-register" name="address_register">
+                        <label for="DiaChi">Địa chỉ</label>
+                        <input type="text" placeholder="Nhập địa chỉ" id="DiaChi" name="DiaChi">
                         <span class="form-message"></span>
                     </div>
                       <div class="modal_content-btn-box">
