@@ -71,6 +71,8 @@
         rules: [
             Validator.isRequired("#TenSP"),
             Validator.isRequired("#SoLuongSP"),
+            Validator.isNumber("#SoLuongSP"),
+            Validator.isNumber("#GiaSP"),
             Validator.isRequired("#GiaSP")
         ],
         errorElement: ".form-message",
@@ -83,7 +85,6 @@
             xhfile.open("POST", "./pages/module/upload.php");
             xhfile.send(formData);
             value['HinhAnh']=file.files[0]?.name
-            console.log(value)
             var data = JSON.stringify(value);
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "./pages/module/sanpham.php?them");

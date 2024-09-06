@@ -7,8 +7,7 @@ class sanpham
     {
         $this->conn = new connect;
     }
-    function danhsachsp()
-    {
+    function danhsachsp(){
         $this->conn->constructor();
         $strSQL = "SELECT *
                    FROM sanpham
@@ -84,6 +83,36 @@ class sanpham
         $this->conn->excuteSQL($strSQL);
         $this->conn->disconnect();
         return $result;
+    }
+    function fetchSanphamDM($danhmuc){
+        $this->conn->constructor();
+        $strSQL="SELECT * FROM sanpham WHERE MaDM='".$danhmuc."'";
+        $result=$this->conn->excuteSQL($strSQL);
+        $datasp=array();
+        if(mysqli_num_rows($result)>0){
+            while($row=mysqli_fetch_assoc($result)){
+                $datasp[]=$row;
+            }
+        }
+        $this->conn->disconnect();
+        return $datasp;
+    }
+    function fetchSanpham(){
+        $this->conn->constructor();
+        $strSQL="SELECT *
+                   FROM sanpham
+                   INNER JOIN thuonghieu ON sanpham.MaTH = thuonghieu.MaTH
+                   INNER JOIN danhmucsp ON sanpham.MaDM = danhmucsp.MaDM
+                   WHERE `TrangThai`='1'";
+        $result=$this->conn->excuteSQL($strSQL);
+        $datasp=array();
+        if(mysqli_num_rows($result)>0){
+            while($row=mysqli_fetch_assoc($result)){
+                $datasp[]=$row;
+            }
+        }
+        $this->conn->disconnect();
+        return $datasp;
     }
 }
 class banhang

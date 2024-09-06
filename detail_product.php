@@ -1,16 +1,10 @@
 
 <?php
-require('pages/connect_cuatui.php');
-$conn = new ConnectDB();
-if ($conn->conn->connect_error) {
-    die("Kết nối đến cơ sở dữ liệu thất bại: " . $conn->conn->connect_error);
-}
-
+require_once('pages/module/controller.php');
+$sanpham=new sanpham();
 $id = $_GET['id'];
-$result = mysqli_query($conn->conn, "SELECT * FROM `sanpham` WHERE `MaSP` = '$id'");
+$result = $sanpham->sanpham($id);
 $product = mysqli_fetch_assoc($result);
-// $img = mysqli_query($conn->conn, "SELECT `HINHANH` FROM `sanpham` WHERE `MaSP` = '$id'");
-// $product['image'] = mysqli_fetch_all($img , MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">

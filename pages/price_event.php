@@ -1,7 +1,7 @@
 <?php
-require("sanpham.php");
+require_once("module/controller.php");
 require_once("product_actions.php");
-
+$sanphamDB=new sanpham();
 function filterSanphamByPrice($sanpham, $selectedPrice) {
     $priceRanges = [
         'price-all' => [0, PHP_INT_MAX],
@@ -20,7 +20,6 @@ function filterSanphamByPrice($sanpham, $selectedPrice) {
     return $filteredSanpham;
 }
 
-$db = new ConnectDB();
 if (isset($_REQUEST['data'])) {
     $data=$_REQUEST['data'];
     $data = json_decode($data);
@@ -28,13 +27,13 @@ if (isset($_REQUEST['data'])) {
     if (!$data->alldm) {
         $sanpham=[];
         foreach ($data->dm as $item) {
-            $result = fetchSanphamDM($db->conn, $item);
+            $result = $sanphamDB->fetchSanphamDM($item);
             $spLocGia = filterSanphamByPrice($result, $data->price);
             $sanpham=array_merge($sanpham,$spLocGia);
         }
     } else {
         $sanpham=null;
-        $sanpham = fetchSanpham($db->conn);
+        $sanpham = $sanphamDB->fetchSanpham();
         $sanpham = filterSanphamByPrice($sanpham, $data->price);
     }
     // print_r($sanpham);

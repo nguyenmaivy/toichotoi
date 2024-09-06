@@ -59,6 +59,7 @@
     <script src="mail/contact.js"></script>
 
     <!-- Template Javascript -->
+     <script src="js/XMLHTTP.js"></script>
     <script src="js/phu.js"></script>
     <script src="js/main.js"></script>
     <!--Javascript Product-->

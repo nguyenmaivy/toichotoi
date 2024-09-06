@@ -40,7 +40,6 @@ $(document).ready(function () {
                                 value['dm'].push(properti)
                             }
                         })
-                        console.log(value['dm'])
                         var xhr = new XMLHttpRequest;
                         xhr.open("POST", "./pages/price_event.php")
                         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
