@@ -1,6 +1,7 @@
 <?php 
     include './controller.php';
     $phieunhap=new phieunhap;
+    $sanpham=new sanpham();
     if(isset($_REQUEST['row'])){
         $result=$phieunhap->CountRow();
         $row=mysqli_fetch_assoc($result);
@@ -16,6 +17,7 @@
         $data=json_decode($data);
         foreach ($data as $value) {
             $phieunhap->LuuChiTiet($value);
+            $sanpham->suasanpham($value->maSP,$value->GiaSP,$value->donGia);
         }
     }
 ?>

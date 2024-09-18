@@ -21,7 +21,6 @@
                 $result = $sanpham->danhsachsp();
 
                 while ($row = mysqli_fetch_assoc($result)) {
-                    if($row['GiaSP']!='0'){
                         echo '<tr>
                             <td>' . $row['MaSP'] . '</td>
                             <td>' . $row['TenSP'] . '</td>
@@ -32,7 +31,6 @@
                             <td>' . $row['TenDanhMuc'] . '</td>
                             <td><button class="btn btn-danger" onclick="xoasanpham(' . $row['MaSP'] . ',' . $row['SoLuongSP'] . ')">Delete</button></td>
                         </tr>';
-                    }
                 }
                 ?>
 

@@ -60,10 +60,10 @@ class sanpham
         return $result;
     }
     
-    function suasanpham($data){
+    function suasanpham($masp,$giaban,$gianhap){
         $this->conn->constructor();
-        $strSQL="UPDATE `sanpham` SET `TenSP`='".$data->TenSP."',`SoLuongSP`='".$data->SoLuongSP."',`GiaSP`='".$data->GiaSP."',`MaTH`='".$data->MaTH."',`MaDM`='".$data->TenDM."'
-        WHERE MaSP ='".$data->MaSP."'";
+        $strSQL="UPDATE `sanpham` SET `GiaSP`=$giaban, GiaNhap=$gianhap
+        WHERE MaSP =$masp";
         $result=$this->conn->excuteSQL($strSQL);
         return $result;
     }

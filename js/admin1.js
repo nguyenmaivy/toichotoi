@@ -377,7 +377,7 @@ function nhapkho() {
                     data['soLuong'] = value['f_pn_soluong'];
                     data['donGia'] = value['f_pn_dongia'];
                     data['maSP'] = value['f_pn_MaSP'];
-                    data['giaban']=$('.js_giaban').text()
+                    data['GiaSP']=$('.js_giaban').text()
                     dataCTPN.push(data)
                     dataPhieuNhap['tongTien'] += data['soLuong'] * data['donGia']
                     $(".tongtien-phieunhap").text(dataPhieuNhap['tongTien'])
