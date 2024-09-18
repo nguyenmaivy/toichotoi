@@ -13,19 +13,9 @@
                     <span class="form-message"></span>
                 </div>
                 <div class="modal_content-input-box form-group">
-                    <label for="SoLuongSP">Số lượng sản phẩm</label>
-                    <input type="" id="SoLuongSP" name="SoLuongSP">
-                    <span class="form-message"></span>
-                </div>
-                <div class="modal_content-input-box form-group">
-                    <label for="GiaSP">Giá sản phẩm</label>
-                    <input type="" id="GiaSP" name="GiaSP">
-                    <span class="form-message"></span>
-                    <option value=""></option>
-                </div>
-                <div class="modal_content-input-box form-group">
                     <label for="TenTH">Thương hiệu</label>
                     <select id="TenTH" name="MaTH">
+                        <option value="0">---Chọn thương hiệu---</option>
                         <?php
                         include './module/controller.php';
                         $thuonghieu = new thuonghieu;
@@ -43,6 +33,7 @@
                 <div class="modal_content-input-box form-group">
                     <label for="TenDM">Danh mục</label>
                     <select id="TenDM" name="TenDM">
+                        <option value="0">---Chọn danh mục---</option>
                         <?php
                         include_once './module/controller.php';
                         $danhmuc = new danhmuc;
@@ -70,8 +61,6 @@
         form: "#form-themsp",
         rules: [
             Validator.isRequired("#TenSP"),
-            Validator.isRequired("#SoLuongSP"),
-            Validator.isRequired("#GiaSP")
         ],
         errorElement: ".form-message",
         onSubmit: function(value) {

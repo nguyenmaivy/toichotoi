@@ -2,11 +2,7 @@ var dataAccount=[]
 function GetValue(){
     var xhr=new XHR()
     return xhr.connect(undefined,"./pages/module/taikhoan.php?get")
-    .then(function(data){
-        dataAccount=JSON.parse(data)
-    })
 }
-GetValue()
 function SetValue(value){
     var xhr=new XHR()
     return xhr.connect("POST","./pages/module/taikhoan.php?update",value)
@@ -15,7 +11,9 @@ function RenderTableAccount(data=false){
     var html=''
     if(!data){
         GetValue()
-        .then(function(){
+        .then((data)=>{
+            console.log(data)
+            dataAccount=JSON.parse(data);
             dataAccount.forEach(value => {
                 html+=` <tr style="color: #222222; font-weight: bold;">
                 <th scope="row">${value['UserName']}</th>

@@ -11,7 +11,6 @@
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1">Thương hiệu</th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1">Danh mục</th>
                     <th class="sorting" width="60px" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"></th>
-                    <th class="sorting" width="60px" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"></th>
                 </tr>
             </thead>
             <tbody>
@@ -22,17 +21,18 @@
                 $result = $sanpham->danhsachsp();
 
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<tr>
-                                            <td>' . $row['MaSP'] . '</td>
-                                            <td>' . $row['TenSP'] . '</td>
-                                            <td><img src="./img/' . $row['HinhAnh'] . '" class="img-sanpham"></td>
-                                            <td>' . $row['SoLuongSP'] . '</td>
-                                            <td>' . $row['GiaSP'] . '</td>
-                                            <td>' . $row['TenTH'] . '</td>
-                                            <td>' . $row['TenDanhMuc'] . '</td>
-                                            <td><button class="btn btn-warning" onclick="suasanpham(' . $row['MaSP'] . ')">Edit</button></td>
-                                            <td><button class="btn btn-danger" onclick="xoasanpham(' . $row['MaSP'] . ')">Delete</button></td>
-                                        </tr>';
+                    if($row['GiaSP']!='0'){
+                        echo '<tr>
+                            <td>' . $row['MaSP'] . '</td>
+                            <td>' . $row['TenSP'] . '</td>
+                            <td><img src="./img/' . $row['HinhAnh'] . '" class="img-sanpham"></td>
+                            <td>' . $row['SoLuongSP'] . '</td>
+                            <td>' . $row['GiaSP'] . '</td>
+                            <td>' . $row['TenTH'] . '</td>
+                            <td>' . $row['TenDanhMuc'] . '</td>
+                            <td><button class="btn btn-danger" onclick="xoasanpham(' . $row['MaSP'] . ',' . $row['SoLuongSP'] . ')">Delete</button></td>
+                        </tr>';
+                    }
                 }
                 ?>
 

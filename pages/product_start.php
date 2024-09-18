@@ -15,6 +15,7 @@ $db = new ConnectDB();
     
     <!-- Hiển thị danh sách sản phẩm từ cơ sở dữ liệu -->
     <?php foreach ($sanpham as $sp): ?>
+        <?php if($sp['GiaSP']!=0):?>
         <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
             <div class="card product-item border-0 mb-4">
                 <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
@@ -34,5 +35,6 @@ $db = new ConnectDB();
                 </div>
             </div>
         </div>
-    <?php endforeach; ?>
+    <?php endif; ?>
+<?php endforeach; ?>
 

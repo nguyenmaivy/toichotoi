@@ -91,7 +91,7 @@
             <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">Alexander Pierce</a>
+            <a href="#" class="d-block user-name"></a>
           </div>
         </div>
 
@@ -240,7 +240,7 @@
   <script src="js/XMLHTTP.js"></script>
   <script src="js/admin1.js"></script>
   <script src="js/qltaikhoan.js"></script>
-  <script src="js/adpanel.js"></script>
+  <!-- <script src="js/adpanel.js"></script> -->
 </body>
 
 </html>

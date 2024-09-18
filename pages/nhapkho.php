@@ -40,29 +40,7 @@
             </div>
             <div class="col-4">
                 <form action="" id="form-phieunhap">
-                    <div class=" form-group m-4">
-                        <label for="form_phieunhap-MaSP">Mã sản phẩm:</label>
-                        <input id="form_phieunhap-MaSP" name="f_pn_MaSP" class="float-end">
-                        <p class="form-message"></p>
-                    </div>
-                    <div class=" form-group m-4">
-                        <label for="form_phieunhap-TenSP">Tên sản phẩm:</label>
-                        <input id="form_phieunhap-TenSP" name="f_pn_TenSP" class="float-end">
-                        <p class="form-message"></p>
-                    </div>
-                    <div class=" form-group m-4">
-                        <label for="form_phieunhap-soluong">Số lượng:</label>
-                        <input id="form_phieunhap-soluong" name="f_pn_soluong" class="float-end">
-                        <p class="form-message"></p>
-                    </div>
-                    <div class=" form-group m-4">
-                        <label for="form_phieunhap-dongia">Đơn giá:</label>
-                        <input id="form_phieunhap-dongia" name="f_pn_dongia" class="float-end">
-                        <p class="form-message"></p>
-                    </div>
-                    <div class="modal_content-btn-box">
-                        <button type="submit" class="btn btn-primary btn-default btn-login">Xác nhận thêm</button>
-                    </div>
+                    
                     
                 </form>
             </div>

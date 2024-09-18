@@ -1,4 +1,8 @@
 const currentLogin = JSON.parse(sessionStorage.getItem("currentLogin"));
+if(!currentLogin || !currentLogin.quyen) {
+    alert("Chưa đăng nhập")
+    window.location.href='index.php'
+}
 function activateNavLink(selector, actionFunction) {
     $(selector).click(function () {
         $(".nav-link.active").removeClass("active");
@@ -213,7 +217,11 @@ function qlkho() {
         }
     })
 }
-function xoasanpham(masp) {
+function xoasanpham(masp,soluong) {
+    if(soluong>0){
+        alert("Không thể xóa sản phẩm khi vẫn còn tồn kho")
+        return;
+    }
     const flag = confirm("Bạn có chắc muốn xóa sản phẩm này không?")
     if (flag) {
         xhr = new XMLHttpRequest();
@@ -351,7 +359,7 @@ function nhapkho() {
                 onSubmit: function (value) {
                     var tableE = document.querySelector("#table_phieunhap")
                     var newRow = tableE.insertRow();
-                    var data = {};
+                    let data = new Object();
                     var newcell0 = newRow.insertCell(0)
                     newcell0.innerHTML = value['f_pn_MaSP'];
                     var newcell1 = newRow.insertCell(1)
@@ -368,6 +376,8 @@ function nhapkho() {
                     data['maPhieuNhap'] = dataPhieuNhap['maPhieuNhap']
                     data['soLuong'] = value['f_pn_soluong'];
                     data['donGia'] = value['f_pn_dongia'];
+                    data['maSP'] = value['f_pn_MaSP'];
+                    data['giaban']=$('.js_giaban').text()
                     dataCTPN.push(data)
                     dataPhieuNhap['tongTien'] += data['soLuong'] * data['donGia']
                     $(".tongtien-phieunhap").text(dataPhieuNhap['tongTien'])
@@ -386,10 +396,58 @@ function setValueForm(event) {
         }
     })
     const dataE = event.target.parentNode
-    const inputE = document.querySelector("#form-phieunhap").querySelectorAll("input")
-    for (var i = 0; i < 2; i++) {
-        inputE[i].value = dataE.cells[i].textContent;
+    var inputE;
+    const formPhieuNhap = document.getElementById('form-phieunhap');
+    let stringHTML=`<div class=" form-group m-4">
+                        <label for="form_phieunhap-MaSP">Mã sản phẩm:</label>
+                        <input id="form_phieunhap-MaSP" name="f_pn_MaSP" class="float-end">
+                        <p class="form-message"></p>
+                    </div>
+                    <div class=" form-group m-4">
+                        <label for="form_phieunhap-TenSP">Tên sản phẩm:</label>
+                        <input id="form_phieunhap-TenSP" name="f_pn_TenSP" class="float-end">
+                        <p class="form-message"></p>
+                    </div>
+                    <div class=" form-group m-4">
+                        <label for="form_phieunhap-soluong">Số lượng:</label>
+                        <input id="form_phieunhap-soluong" name="f_pn_soluong" class="float-end">
+                        <p class="form-message"></p>
+                    </div>
+                    <div class=" form-group m-4">
+                        <label for="form_phieunhap-dongia">Đơn giá:</label>
+                        <input id="form_phieunhap-dongia" name="f_pn_dongia" class="float-end">
+                        <p class="form-message"></p>
+                    </div>`
+    var map=[];
+    let j=0;
+    while(dataE.cells[j]){
+        map.push(dataE.cells[j].textContent)
+        j++
     }
+    if(map[3]==0){
+        stringHTML+=`<div class=" form-group m-4">
+        <label for="form_phieunhap-dongia">Hệ số lãi:</label>
+        <input name="f_pn_lai" class="float-end">
+        <p class="form-message"></p>
+        <div >Giá bán:<span class="js_giaban"></span></div>
+        </div>`
+    }
+    formPhieuNhap.innerHTML=stringHTML+`<div class="modal_content-btn-box">
+    <button type="submit" class="btn btn-primary btn-default">Xác nhận thêm</button>
+    </div>`
+    inputE = document.querySelector("#form-phieunhap").querySelectorAll("input");
+    for (var i = 0; i < 2; i++) {
+        inputE[i].value=map[i]
+    }
+    $('[name="f_pn_lai"]').on('keyup', function(){
+        console.log("cmmm");
+        let dongia = Number($('[name="f_pn_dongia"]').val());
+        let lai = Number($(this).val());
+        let giaban = dongia + (dongia * lai / 100); 
+        console.log(giaban)
+        $('.js_giaban').html(giaban);
+    });
+    
 }
 function thongkenhap() {
     // $(".model-right.active").removeClass("active")
@@ -433,7 +491,8 @@ function handleLuuPhieu(flag) {
         xhr.open("POST", "./pages/module/phieunhap.php")
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         xhr.send("phieunhap=" + JSON.stringify(dataPhieuNhap) + "&chitietphieunhap=" + JSON.stringify(dataCTPN))
-
+        dataCTPN=[];
+        nhapkho()
         $(".item-menu.active").click();
     }
     function inphieu() {
