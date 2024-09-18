@@ -250,23 +250,23 @@ ShowProductsHTML(danhSachSanPham);*/
 //     console.log(modalContainer)
 //     body.style.overflow = "auto";
 // }
-// function increasingNumber(e) {
-//     let qty = e.parentNode.querySelector('.input-qty');
-//     if (parseInt(qty.value) < qty.max) {
-//         qty.value = parseInt(qty.value) + 1;
-//     } else {
-//         qty.value = qty.max;
-//     }
-// }
+function increasingNumber(e) {
+    let qty = e.parentNode.querySelector('.input-qty');
+    if (parseInt(qty.value) < qty.max) {
+        qty.value = parseInt(qty.value) + 1;
+    } else {
+        qty.value = qty.max;
+    }
+}
 
-// function decreasingNumber(e) {
-//     let qty = e.parentNode.querySelector('.input-qty');
-//     if (qty.value > qty.min) {
-//         qty.value = parseInt(qty.value) - 1;
-//     } else {
-//         qty.value = qty.min;
-//     }
-// }
+function decreasingNumber(e) {
+    let qty = e.parentNode.querySelector('.input-qty');
+    if (qty.value > qty.min) {
+        qty.value = parseInt(qty.value) - 1;
+    } else {
+        qty.value = qty.min;
+    }
+}
 // // Phân trang cho sản phẩm
 // // cách 1
 // let perPage = 12;

@@ -60,12 +60,12 @@
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
         <!-- Navbar Search -->
-        
+
 
         <!-- Messages Dropdown Menu -->
-        
+
         <!-- Notifications Dropdown Menu -->
-        
+
         <li class="nav-item">
           <a class="nav-link" data-widget="fullscreen" href="#" role="button">
             <i class="fas fa-expand-arrows-alt"></i>
@@ -178,6 +178,8 @@
               </ul>
             </li>
         </nav>
+
+
       </div>
     </aside>
     <!-- Content Wrapper. Contains page content -->
@@ -238,6 +240,7 @@
   <script src="js/XMLHTTP.js"></script>
   <script src="js/admin1.js"></script>
   <script src="js/qltaikhoan.js"></script>
+  <script src="js/adpanel.js"></script>
 </body>
 
 </html>

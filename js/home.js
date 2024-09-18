@@ -223,3 +223,20 @@ function GiamNe(index){
     localStorage.setItem("Cart",JSON.stringify(Cart))
     RenderGioHang()
 }
+function increasingNumber(e) {
+    let qty = e.parentNode.querySelector('.input-qty');
+    if (parseInt(qty.value) < qty.max) {
+        qty.value = parseInt(qty.value) + 1;
+    } else {
+        qty.value = qty.max;
+    }
+}
+
+function decreasingNumber(e) {
+    let qty = e.parentNode.querySelector('.input-qty');
+    if (qty.value > qty.min) {
+        qty.value = parseInt(qty.value) - 1;
+    } else {
+        qty.value = qty.min;
+    }
+}

@@ -27,7 +27,7 @@ if(isset($_REQUEST['MaNCC'])){
             <div class="modal_content-input-box form-group">
                 <label for="">Số điện thoại</label>
                
-                <input type="" id="SoDienThoai" name="SoDienThoai" value="'.$row['DiaChi'].'">
+                <input type="" id="SoDienThoai" name="SoDienThoai" value="'.$row['SoDienThoai'].'">
                 
                 <span class="form-message"></span>
             </div>

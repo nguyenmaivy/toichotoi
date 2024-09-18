@@ -156,10 +156,31 @@ function qlkho() {
     <ul class="list-group list-group-horizontal menu-container">
         <li class="list-group-item model-item">Danh sách sản phẩm</li>
         <li class="list-group-item model-item">Thêm sản phẩm</li>
+        <li class="list-group-item model-item " data-bs-toggle="modal" data-bs-target="#">Thêm thương hiệu</li>
+        
     </ul>
     </div>
     <div class="model-content-kho">
-    </div>`)
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>`)
     $(".model-item").click(function (e) {
         $(".model-item.active").removeClass("active")
         if (e.target.innerText == "Danh sách sản phẩm") {

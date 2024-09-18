@@ -45,7 +45,6 @@ $product = mysqli_fetch_assoc($result);
             <span class="price"><?= $product['GiaSP'] ?></span>
         </div>
         <div class="modal-footer-control">
-            <button class="button-dathangngay" id="datngay" data-product="${infoProduct.id}">Đặt hàng ngay</button>
             <button class="button-dat" id="add-cart" onclick="animationCart()"><i class="fa-light fa-basket-shopping">Thêm giỏ hàng</i></button>
         </div>
     </div>

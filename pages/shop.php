@@ -74,7 +74,7 @@
                     <div class="row pb-3">
                         <div class="col-12 pb-1">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="input_searchsp" placeholder="Tên hoặc ID sản phẩm" name="search">
+                                    <input type="text" class="form-control" id="input_searchsp" placeholder="Tìm kiếm sản phẩm" name="search">
                                     <div class="input-group-append">
                                         <button class="btn btn-primary btn_searchsp" type="submit">Search</button>
                                     </div>
